@@ -1,0 +1,467 @@
+<!-- ===================== HERO ===================== -->
+<section class="hero-section" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-line"></div>
+      <h1 class="hero-title">Leben ist <span class="highlight">BEWEGUNG</span><br />ist Leben.</h1>
+      <p class="hero-description">
+        Die Geschwister Weiß-Stiftung - Gemeinnützig, nachhaltig und verantwortungsbewusst seit
+        2021.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn-gold" (click)="scrollToSection('spenden')">
+          Jetzt spenden
+          <app-icon [iconName]="'favorite'" [iconColor]="'#1a2d42'" [iconSize]="'2rem'"></app-icon>
+        </button>
+        <button class="btn-outline" (click)="scrollToSection('about')">Mehr erfahren</button>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-badges">
+        <span class="hero-badge-item">
+          <app-icon
+            [iconName]="'check_circle'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2rem'"
+          ></app-icon>
+          Gemeinnützig anerkannt
+        </span>
+        <span class="hero-badge-item">
+          <app-icon [iconName]="'schedule'" [iconColor]="'#c9963a'" [iconSize]="'2rem'"></app-icon>
+          Seit 2021 aktiv
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <app-icon
+      [iconName]="'arrow_downward'"
+      [iconColor]="'#ffffff'"
+      [iconSize]="'2.4rem'"
+    ></app-icon>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="about-section" id="about">
+  <div class="about-container">
+    <div class="about-image-col">
+      <div class="about-img-wrapper">
+        <img src="/images/about.png" alt="Über die Stiftung" class="about-img" />
+        <div class="about-img-badge">
+          <p class="badge-year">2021</p>
+          <p class="badge-text">Gegründet am 05.05.2021</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-text-col">
+      <div class="section-overhead">
+        <span class="overhead-line"></span>
+        <span class="overhead-label">ÜBER UNS</span>
+      </div>
+      <h2 class="about-title">Im Gedenken an <span class="highlight">Irene Weiß</span></h2>
+      <p class="about-description">
+        Die Geschwister Weiß-Stiftung wurde am 05. Mai 2021 von Hartmut Weiß gegründet – im ewigen
+        Gedenken an seine geliebte Schwester Irene Weiß.
+      </p>
+      <p class="about-description">
+        Unser Leitgedanke ist es, <strong>Menschen zu helfen und im Leben zu stärken</strong>. Mit
+        Leidenschaft und Hingabe setzen wir uns für zwei zentrale Grundpfeiler ein: die Förderung
+        des Glaubens und die Unterstützung der Gesundheit.
+      </p>
+      <div class="about-values-grid">
+        <div class="about-value-item">
+          <app-icon
+            [iconName]="'favorite'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.2rem'"
+          ></app-icon>
+          <div>
+            <p class="value-title">Gemeinnützig</p>
+            <p class="value-sub">Anerkannt und transparent</p>
+          </div>
+        </div>
+        <div class="about-value-item">
+          <app-icon [iconName]="'eco'" [iconColor]="'#c9963a'" [iconSize]="'2.2rem'"></app-icon>
+          <div>
+            <p class="value-title">Nachhaltig</p>
+            <p class="value-sub">Langfristige Projekte</p>
+          </div>
+        </div>
+        <div class="about-value-item">
+          <app-icon [iconName]="'groups'" [iconColor]="'#c9963a'" [iconSize]="'2.2rem'"></app-icon>
+          <div>
+            <p class="value-title">Verantwortung</p>
+            <p class="value-sub">Für die Gemeinschaft</p>
+          </div>
+        </div>
+        <div class="about-value-item">
+          <app-icon
+            [iconName]="'schedule'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.2rem'"
+          ></app-icon>
+          <div>
+            <p class="value-title">Seit 2021</p>
+            <p class="value-sub">Immer für Sie da</p>
+          </div>
+        </div>
+      </div>
+      <blockquote class="about-quote">
+        <p>"Jeder Mensch verdient Unterstützung – in Glauben und Gesundheit."</p>
+        <cite>— Hartmut Weiß, Gründer</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MISSION ===================== -->
+<section class="mission-section" id="mission">
+  <div class="mission-container">
+    <div class="section-header">
+      <div class="section-overhead centered">
+        <span class="overhead-line"></span>
+        <span class="overhead-label">UNSERE MISSION</span>
+        <span class="overhead-line"></span>
+      </div>
+      <h2 class="section-title">Die zwei Grundpfeiler</h2>
+      <p class="section-subtitle">
+        Unsere Stiftung konzentriert sich auf zwei zentrale Bereiche, die das menschliche Leben
+        bereichern und stärken.
+      </p>
+    </div>
+
+    <div class="mission-cards">
+      <!-- Glaubensvermittlung -->
+      <div class="mission-card mission-card--blue">
+        <div class="mission-card-icon">
+          <app-icon
+            [iconName]="'menu_book'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.8rem'"
+          ></app-icon>
+        </div>
+        <h3 class="mission-card-title">Glaubensvermittlung</h3>
+        <p class="mission-card-text">
+          Wir fördern kirchliche Institutionen und unterstützen aktiv die Ausbildung von
+          Priesteranwärtern sowie die Nachwuchsförderung im Pfarrdienst.
+        </p>
+        <ul class="mission-card-list">
+          <li>
+            <app-icon [iconName]="'check'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+            Förderung kirchlicher Institutionen
+          </li>
+          <li>
+            <app-icon [iconName]="'check'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+            Ausbildung von Priesteranwärtern
+          </li>
+          <li>
+            <app-icon [iconName]="'check'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+            Nachwuchsförderung im Pfarrdienst
+          </li>
+        </ul>
+        <div class="mission-card-watermark">
+          <app-icon
+            [iconName]="'menu_book'"
+            [iconColor]="'rgba(255,255,255,0.05)'"
+            [iconSize]="'12rem'"
+          ></app-icon>
+        </div>
+      </div>
+
+      <!-- Gesundheitsförderung -->
+      <div class="mission-card mission-card--gold">
+        <div class="mission-card-icon mission-card-icon--light">
+          <app-icon
+            [iconName]="'favorite'"
+            [iconColor]="'#ffffff'"
+            [iconSize]="'2.8rem'"
+          ></app-icon>
+        </div>
+        <h3 class="mission-card-title">Gesundheitsförderung</h3>
+        <p class="mission-card-text">
+          Wir setzen uns für Rehabilitation, Behindertenhilfe und Gesundheitsprojekte in
+          Kindergärten, Schulen und Sportvereinen ein.
+        </p>
+        <ul class="mission-card-list">
+          <li>
+            <app-icon
+              [iconName]="'check'"
+              [iconColor]="'rgba(255,255,255,0.8)'"
+              [iconSize]="'1.8rem'"
+            ></app-icon>
+            Rehabilitationssport
+          </li>
+          <li>
+            <app-icon
+              [iconName]="'check'"
+              [iconColor]="'rgba(255,255,255,0.8)'"
+              [iconSize]="'1.8rem'"
+            ></app-icon>
+            Behindertenhilfe
+          </li>
+          <li>
+            <app-icon
+              [iconName]="'check'"
+              [iconColor]="'rgba(255,255,255,0.8)'"
+              [iconSize]="'1.8rem'"
+            ></app-icon>
+            Gesundheitsprojekte
+          </li>
+        </ul>
+        <div class="mission-card-watermark">
+          <app-icon
+            [iconName]="'favorite'"
+            [iconColor]="'rgba(255,255,255,0.07)'"
+            [iconSize]="'12rem'"
+          ></app-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJEKTE ===================== -->
+<section class="projekte-section" id="projekte">
+  <div class="projekte-container">
+    <div class="section-header">
+      <div class="section-overhead centered">
+        <span class="overhead-line"></span>
+        <span class="overhead-label">ENGAGEMENT</span>
+        <span class="overhead-line"></span>
+      </div>
+      <h2 class="section-title">Unsere Projekte</h2>
+      <p class="section-subtitle">
+        Wir setzen unsere Mission durch konkrete Projekte um, die das Leben von Menschen bereichern.
+      </p>
+    </div>
+
+    <!-- Featured Project -->
+    <div class="projekt-featured">
+      <div class="projekt-featured-img">
+        <img src="/images/projekt-main.png" alt="Sendungsraum Neuss" />
+        <span class="projekt-badge">
+          <span class="projekt-badge-dot"></span>
+          Aktuelles Projekt
+        </span>
+      </div>
+      <div class="projekt-featured-body">
+        <h3 class="projekt-featured-title">Projekt: Sendungsraum Neuss</h3>
+        <p class="projekt-featured-text">
+          Unser wichtigstes aktuelles Vorhaben ist die Unterstützung des Priesternachwuchses im
+          Sendungsraum Neuss. Durch gezielte Förderung ermöglichen wir jungen Menschen, ihre
+          Berufung zu finden und kirchliche Dienste zu ergreifen.
+        </p>
+        <div class="projekt-featured-stats">
+          <div class="projekt-stat">
+            <p class="projekt-stat-value">€ 50.000+</p>
+            <p class="projekt-stat-label">Fördervolumen</p>
+          </div>
+          <div class="projekt-stat">
+            <p class="projekt-stat-value highlight-gold">2024</p>
+            <p class="projekt-stat-label">Projektstart</p>
+          </div>
+        </div>
+        <button class="btn-gold-outline" (click)="scrollToSection('spenden')">
+          Projekt unterstützen
+          <app-icon
+            [iconName]="'arrow_right_alt'"
+            [iconColor]="'#1a2d42'"
+            [iconSize]="'2rem'"
+          ></app-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- Zukünftige Vorhaben -->
+    <h3 class="projekte-sub-title">Zukünftige Vorhaben</h3>
+    <div class="projekte-future-cards">
+      <div class="projekte-future-card">
+        <app-icon [iconName]="'apartment'" [iconColor]="'#5a6a7a'" [iconSize]="'2.8rem'"></app-icon>
+        <p class="future-card-title">Gemeindezentrum-Förderung</p>
+        <p class="future-card-text">
+          Unterstützung beim Bau und der Renovierung von Gemeindezentren
+        </p>
+      </div>
+      <div class="projekte-future-card">
+        <app-icon [iconName]="'favorite'" [iconColor]="'#5a6a7a'" [iconSize]="'2.8rem'"></app-icon>
+        <p class="future-card-title">Sportprojekte für Alle</p>
+        <p class="future-card-text">Inklusive Sportangebote für Menschen mit Behinderung</p>
+      </div>
+      <div class="projekte-future-card">
+        <app-icon [iconName]="'menu_book'" [iconColor]="'#5a6a7a'" [iconSize]="'2.8rem'"></app-icon>
+        <p class="future-card-title">Bildungsinitiativen</p>
+        <p class="future-card-text">Gesundheitsaufklärung an Schulen und Kindergärten</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SPENDEN ===================== -->
+<section class="spenden-section" id="spenden">
+  <div class="spenden-container">
+    <div class="spenden-left">
+      <app-icon [iconName]="'favorite'" [iconColor]="'#c9963a'" [iconSize]="'3.2rem'"></app-icon>
+      <h2 class="spenden-title">Ihre Hilfe für einen guten Zweck</h2>
+      <p class="spenden-description">
+        Als gemeinnützige Stiftung sind wir auf die Unterstützung von Menschen angewiesen, die
+        unsere Vision teilen. Jeder Beitrag hilft uns, mehr Leben zu berühren.
+      </p>
+      <ul class="spenden-list">
+        <li>
+          <app-icon [iconName]="'check'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+          Steuerlich absetzbar nach § 53 AO
+        </li>
+        <li>
+          <app-icon [iconName]="'check'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+          100% fließt direkt in unsere Projekte
+        </li>
+        <li>
+          <app-icon [iconName]="'check'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+          Transparente Mittelverwendung
+        </li>
+      </ul>
+    </div>
+    <div class="spenden-right">
+      <div class="spenden-card">
+        <h3 class="spenden-card-title">Jetzt spenden</h3>
+        <div class="spenden-bank-block">
+          <div class="spenden-bank-header">
+            <app-icon
+              [iconName]="'account_balance'"
+              [iconColor]="'#c9963a'"
+              [iconSize]="'2rem'"
+            ></app-icon>
+            <span>Bankverbindung</span>
+          </div>
+          <div class="spenden-bank-details">
+            <p><strong>Bank:</strong> Kreissparkasse Düsseldorf</p>
+            <p><strong>IBAN:</strong> DE89 3245 0000 0000 0000 00</p>
+            <p><strong>BIC:</strong> WELADED1DUE</p>
+            <p><strong>Empfänger:</strong> Geschwister Weiß-Stiftung</p>
+          </div>
+        </div>
+        <button class="btn-gold-full" (click)="handleSpenden()">
+          <app-icon [iconName]="'mail'" [iconColor]="'#1a2d42'" [iconSize]="'2rem'"></app-icon>
+          Kontakt aufnehmen
+        </button>
+        <p class="spenden-card-hint">Für Fragen zur Spende kontaktieren Sie uns gerne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KONTAKT ===================== -->
+<section class="kontakt-section" id="kontakt">
+  <div class="kontakt-container">
+    <div class="section-header">
+      <div class="section-overhead centered">
+        <span class="overhead-line"></span>
+        <span class="overhead-label">KONTAKT</span>
+        <span class="overhead-line"></span>
+      </div>
+      <h2 class="section-title">Wir freuen uns auf Sie</h2>
+      <p class="section-subtitle">
+        Haben Sie Fragen oder möchten Sie mehr über unsere Arbeit erfahren? Schreiben Sie uns.
+      </p>
+    </div>
+
+    <div class="kontakt-grid">
+      <!-- Form -->
+      <div class="kontakt-form-card">
+        <h3 class="kontakt-form-title">Nachricht senden</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Name *</label>
+            <input
+              class="form-input"
+              type="text"
+              placeholder="Ihr vollständiger Name"
+              [(ngModel)]="formData.name"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-Mail *</label>
+            <input
+              class="form-input"
+              type="email"
+              placeholder="ihre.email&#64;beispiel.de"
+              [(ngModel)]="formData.email"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Betreff</label>
+          <select class="form-select" [(ngModel)]="formData.betreff">
+            <option value="">Bitte wählen</option>
+            <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+            <option value="Spendenanfrage">Spendenanfrage</option>
+            <option value="Projektanfrage">Projektanfrage</option>
+            <option value="Presse">Presse</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nachricht *</label>
+          <textarea
+            class="form-textarea"
+            placeholder="Wie können wir Ihnen helfen?"
+            [(ngModel)]="formData.nachricht"
+            rows="5"
+          ></textarea>
+        </div>
+        <div class="form-checkbox-row">
+          <input type="checkbox" id="datenschutz" [(ngModel)]="formData.datenschutz" />
+          <label for="datenschutz" class="form-checkbox-label">
+            Ich habe die
+            <a class="form-link" (click)="routing('datenschutz')">Datenschutzerklärung</a> gelesen
+            und akzeptiere diese. *
+          </label>
+        </div>
+        <button class="btn-dark-full" (click)="handleContactSubmit()">
+          Nachricht senden
+          <app-icon [iconName]="'send'" [iconColor]="'#ffffff'" [iconSize]="'1.8rem'"></app-icon>
+        </button>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="kontakt-info-col">
+        <div class="kontakt-info-card">
+          <app-icon
+            [iconName]="'location_on'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.4rem'"
+          ></app-icon>
+          <div>
+            <p class="kontakt-info-title">Adresse</p>
+            <p class="kontakt-info-text">Geschwister Weiß-Stiftung</p>
+            <p class="kontakt-info-text">Musterstraße 1</p>
+            <p class="kontakt-info-text">41460 Neuss</p>
+            <p class="kontakt-info-text">Deutschland</p>
+          </div>
+        </div>
+        <div class="kontakt-info-card">
+          <app-icon [iconName]="'mail'" [iconColor]="'#c9963a'" [iconSize]="'2.4rem'"></app-icon>
+          <div>
+            <p class="kontakt-info-title">E-Mail</p>
+            <a href="mailto:info@geschwister-weiss-stiftung.de" class="kontakt-info-link">
+              info&#64;geschwister-weiss-stiftung.de
+            </a>
+          </div>
+        </div>
+        <div class="kontakt-info-card kontakt-info-card--dark">
+          <app-icon
+            [iconName]="'schedule'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.4rem'"
+          ></app-icon>
+          <div>
+            <p class="kontakt-info-title kontakt-info-title--light">Erreichbarkeit</p>
+            <p class="kontakt-info-text--light">Montag – Freitag: 9:00 – 17:00 Uhr</p>
+            <p class="kontakt-info-text--light">Wochenende: Nach Vereinbarung</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

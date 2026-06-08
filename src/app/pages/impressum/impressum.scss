@@ -1,0 +1,239 @@
+@use '../../../styles' as *;
+
+.impressum-section {
+  background-color: var(--bg-light);
+  padding: 10rem 0 12rem;
+}
+
+.impressum-container {
+  @include container;
+  @include flex-col(6.4rem);
+}
+
+// Hero
+.impressum-hero {
+  @include flex-col(1.6rem);
+  max-width: 72rem;
+  padding-top: 2rem;
+}
+
+.impressum-badge {
+  display: inline-block;
+  background-color: var(--primary-blue);
+  color: var(--text-light);
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  border-radius: 50rem;
+  width: fit-content;
+}
+
+.impressum-title {
+  font-size: 5.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+
+  @include respond(sm) {
+    font-size: 3.6rem;
+  }
+}
+
+.impressum-subtitle {
+  font-size: 1.6rem;
+  color: var(--text-grey);
+}
+
+// Grid
+.impressum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.impressum-block {
+  background-color: var(--bg-white);
+  border-radius: 1.6rem;
+  padding: 3.2rem;
+  box-shadow: var(--shadow-md);
+  @include flex-col(1.6rem);
+  border-top: 3px solid transparent;
+  transition: border-color 0.3s;
+
+  &:hover {
+    border-top-color: var(--accent-gold);
+  }
+
+  &--full {
+    grid-column: 1 / -1;
+  }
+
+  &--dark {
+    background-color: var(--primary-blue);
+    border-top-color: var(--accent-gold);
+
+    &:hover {
+      border-top-color: var(--accent-gold-hover);
+    }
+  }
+
+  h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+}
+
+.impressum-block-icon {
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: var(--accent-gold-light);
+  border-radius: 1.2rem;
+  @include flex-center;
+}
+
+.impressum-content {
+  @include flex-col(0.8rem);
+
+  p {
+    font-size: 1.5rem;
+    color: var(--text-grey);
+    line-height: 1.7;
+  }
+}
+
+.impressum-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  color: var(--text-grey);
+
+  a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.impressum-zweck-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.zweck-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background-color: var(--bg-light);
+  padding: 0.8rem 1.6rem;
+  border-radius: 50rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+// Spenden Block (dark)
+.impressum-spenden-header {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-light);
+  }
+}
+
+.impressum-spenden-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.spenden-item {
+  @include flex-col(0.4rem);
+}
+
+.spenden-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.spenden-value {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-light);
+
+  &.spenden-iban {
+    font-family: monospace;
+    font-size: 1.6rem;
+    color: var(--accent-gold);
+    letter-spacing: 0.05em;
+  }
+}
+
+.impressum-dankeschoen {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-align: center;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// Haftung
+.impressum-haftung {
+  @include flex-col(3.2rem);
+
+  h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+}
+
+.haftung-blocks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.haftung-block {
+  background-color: var(--bg-white);
+  border-radius: 1.2rem;
+  padding: 2.8rem;
+  box-shadow: var(--shadow-sm);
+  @include flex-col(1.2rem);
+
+  h3 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: var(--text-grey);
+    line-height: 1.7;
+  }
+}

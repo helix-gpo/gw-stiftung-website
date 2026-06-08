@@ -1,0 +1,196 @@
+<section class="ueber-section">
+  <div class="ueber-container">
+    <!-- Hero -->
+    <div class="ueber-hero">
+      <div class="ueber-hero-text">
+        <div class="section-overhead">
+          <span class="overhead-line"></span>
+          <span class="overhead-label">ÜBER DIE STIFTUNG</span>
+        </div>
+        <h1 class="ueber-title">Im Gedenken an <span class="highlight">Irene Weiß</span></h1>
+        <p class="ueber-subtitle">
+          Die Geschichte einer Stiftung, die aus Liebe entstand — und aus dem Wunsch, anderen
+          Menschen zu helfen.
+        </p>
+      </div>
+    </div>
+
+    <!-- Geschichte -->
+    <div class="geschichte-section">
+      <div class="geschichte-label">
+        <span class="overhead-line"></span>
+        <span class="overhead-label">GESCHICHTE</span>
+      </div>
+      <h2 class="geschichte-title">Die Entstehung der Stiftung</h2>
+      <div class="geschichte-content">
+        <div class="geschichte-text">
+          <p>
+            Der Stifter, Herr Hartmut Weiß, geboren am 02.02.1941, bestimmte bereits mit
+            privatschriftlichem Testament vom 15.08.2011 die Geschwister Weiß-Stiftung als alleinige
+            Erbin und benannte deren langjährigen Berater bzw. den heutigen Kuratoriumsvorsitzenden
+            der Stiftung, Herrn Michael Breuer, geboren am 08.08.1963, zum Testamentsvollstrecker.
+          </p>
+          <p>
+            Aufgrund des schlechten gesundheitlichen Zustandes des Stifters wurden mit
+            Stiftungsgeschäft vom 05.05.2021 (Beurkundung durch den Notar Dr. Burkhard Pünder/UR.
+            Nr. P 1260/2021) bereits zu Lebzeiten des Stifters erhebliche Teile seines Vermögens auf
+            die Stiftung (Az. 21.13-St.2160) übertragen und durch notarielles Testament (UR. Nr. P
+            1261/2021) wiederum die Stiftung zu dessen alleiniger und unbeschränkter Erbin bzw. Herr
+            Michael Breuer zum Testamentsvollstrecker berufen.
+          </p>
+          <div class="geschichte-memorial">
+            <app-icon
+              [iconName]="'church'"
+              [iconColor]="'#c9963a'"
+              [iconSize]="'2.4rem'"
+            ></app-icon>
+            <p>
+              <strong>† Durch den Tod des Stifters am 15.07.2022</strong> wurde nunmehr sein
+              vollständiges Vermögen in die Stiftung eingebracht.
+            </p>
+          </div>
+        </div>
+        <div class="geschichte-timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <span class="timeline-year">2011</span>
+              <p class="timeline-text">
+                Privatschriftliches Testament — Stiftung als alleinige Erbin bestimmt
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot timeline-dot--gold"></div>
+            <div class="timeline-body">
+              <span class="timeline-year">05.05.2021</span>
+              <p class="timeline-text">
+                Gründung der Stiftung durch notarielles Stiftungsgeschäft (UR. Nr. P 1260/2021)
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot timeline-dot--memorial"></div>
+            <div class="timeline-body">
+              <span class="timeline-year">15.07.2022</span>
+              <p class="timeline-text">
+                † Tod des Stifters Hartmut Weiß — vollständiges Vermögen in die Stiftung eingebracht
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kuratorium -->
+    <div class="personen-section">
+      <div class="personen-header">
+        <div class="section-overhead">
+          <span class="overhead-line"></span>
+          <span class="overhead-label">GREMIEN</span>
+        </div>
+        <h2 class="personen-title">Kuratorium</h2>
+        <p class="personen-subtitle">
+          Das Kuratorium überwacht die Tätigkeit des Vorstands und berät die Stiftung in
+          grundsätzlichen Angelegenheiten.
+        </p>
+      </div>
+      <div class="personen-cards">
+        @for (person of kuratorium; track person.name) {
+          <div class="person-card person-card--kuratorium">
+            <div class="person-img-wrapper">
+              <img [src]="person.bild" [alt]="person.name" class="person-img" />
+              @if (person.rolle === 'Kuratoriumsvorsitzender') {
+                <span class="person-badge">Vorsitzender</span>
+              }
+            </div>
+            <div class="person-body">
+              <h3 class="person-name">{{ person.name }}</h3>
+              <p class="person-rolle">{{ person.rolle }}</p>
+              <p class="person-beschreibung">{{ person.beschreibung }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Vorstand -->
+    <div class="personen-section">
+      <div class="personen-header">
+        <div class="section-overhead">
+          <span class="overhead-line"></span>
+          <span class="overhead-label">GREMIEN</span>
+        </div>
+        <h2 class="personen-title">Vorstand</h2>
+        <p class="personen-subtitle">
+          Der Vorstand führt die Geschäfte der Stiftung und setzt die satzungsgemäßen Zwecke um.
+        </p>
+      </div>
+      <div class="personen-cards">
+        @for (person of vorstand; track person.name) {
+          <div class="person-card">
+            <div class="person-img-wrapper">
+              <img [src]="person.bild" [alt]="person.name" class="person-img" />
+            </div>
+            <div class="person-body">
+              <h3 class="person-name">{{ person.name }}</h3>
+              <p class="person-rolle">{{ person.rolle }}</p>
+              <p class="person-beschreibung">{{ person.beschreibung }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Dokumente -->
+    <div class="dokumente-section">
+      <div class="dokumente-header">
+        <div class="section-overhead">
+          <span class="overhead-line"></span>
+          <span class="overhead-label">TRANSPARENZ</span>
+        </div>
+        <h2 class="dokumente-title">Dokumente & Downloads</h2>
+        <p class="dokumente-subtitle">
+          Alle wichtigen Stiftungsdokumente stehen Ihnen hier zur Ansicht und zum Download bereit.
+        </p>
+      </div>
+      <div class="dokumente-grid">
+        @for (doc of docs; track doc.title) {
+          <div class="dokument-card" (click)="openDoc(doc.path)">
+            <div class="dokument-icon">
+              <app-icon
+                [iconName]="doc.icon"
+                [iconColor]="'#c9963a'"
+                [iconSize]="'2.8rem'"
+              ></app-icon>
+            </div>
+            <div class="dokument-body">
+              <h3 class="dokument-title">{{ doc.title }}</h3>
+              <p class="dokument-desc">{{ doc.description }}</p>
+            </div>
+            <div class="dokument-download">
+              <app-icon
+                [iconName]="'download'"
+                [iconColor]="'#1e3a5f'"
+                [iconSize]="'2.2rem'"
+              ></app-icon>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="ueber-cta">
+      <h2>Möchten Sie die Stiftung unterstützen?</h2>
+      <p>Jeder Beitrag hilft uns, unsere Mission fortzuführen und mehr Menschen zu erreichen.</p>
+      <div class="ueber-cta-buttons">
+        <button class="btn-gold-cta" (click)="routing('')">
+          <app-icon [iconName]="'favorite'" [iconColor]="'#1a2d42'" [iconSize]="'2rem'"></app-icon>
+          Jetzt spenden
+        </button>
+        <button class="btn-outline-cta" (click)="routing('')">Zurück zur Startseite</button>
+      </div>
+    </div>
+  </div>
+</section>

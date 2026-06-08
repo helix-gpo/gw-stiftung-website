@@ -1,0 +1,460 @@
+@use '../../../styles' as *;
+
+.ueber-section {
+  background-color: var(--bg-light);
+  padding: 10rem 0 12rem;
+}
+
+.ueber-container {
+  @include container;
+  @include flex-col(10rem);
+}
+
+// Shared
+.section-overhead {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.overhead-line {
+  flex: 0 0 3.2rem;
+  height: 2px;
+  background-color: var(--accent-gold);
+}
+
+.overhead-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--accent-gold);
+}
+
+.highlight {
+  color: var(--accent-gold);
+}
+
+// Hero
+.ueber-hero {
+  padding-top: 2rem;
+  max-width: 80rem;
+}
+
+.ueber-title {
+  font-size: 5.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.1;
+  margin-bottom: 2rem;
+
+  @include respond(sm) {
+    font-size: 3.6rem;
+  }
+}
+
+.ueber-subtitle {
+  font-size: 1.8rem;
+  color: var(--text-grey);
+  line-height: 1.7;
+}
+
+// Geschichte
+.geschichte-section {
+  @include flex-col(3.2rem);
+}
+
+.geschichte-label {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.geschichte-title {
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+
+  @include respond(sm) {
+    font-size: 2.8rem;
+  }
+}
+
+.geschichte-content {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 6.4rem;
+  align-items: start;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+.geschichte-text {
+  @include flex-col(2rem);
+
+  p {
+    font-size: 1.5rem;
+    color: var(--text-grey);
+    line-height: 1.8;
+  }
+}
+
+.geschichte-memorial {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6rem;
+  background-color: var(--bg-white);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: 0 1.2rem 1.2rem 0;
+  padding: 2.4rem;
+  box-shadow: var(--shadow-sm);
+
+  p {
+    font-size: 1.5rem;
+    color: var(--text-grey);
+    line-height: 1.7;
+
+    strong {
+      color: var(--text-dark);
+    }
+  }
+}
+
+.geschichte-timeline {
+  @include flex-col(0);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 1.1rem;
+    top: 1.2rem;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-blue), var(--accent-gold), #888);
+  }
+}
+
+.timeline-item {
+  display: flex;
+  gap: 2.4rem;
+  padding-bottom: 3.6rem;
+  position: relative;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.timeline-dot {
+  width: 2.4rem;
+  height: 2.4rem;
+  min-width: 2.4rem;
+  border-radius: 50%;
+  background-color: var(--primary-blue);
+  border: 3px solid var(--bg-light);
+  margin-top: 0.4rem;
+  position: relative;
+  z-index: 1;
+
+  &--gold {
+    background-color: var(--accent-gold);
+  }
+  &--memorial {
+    background-color: #666;
+  }
+}
+
+.timeline-body {
+  @include flex-col(0.6rem);
+}
+
+.timeline-year {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.timeline-text {
+  font-size: 1.4rem;
+  color: var(--text-grey);
+  line-height: 1.6;
+}
+
+// Personen
+.personen-section {
+  @include flex-col(4rem);
+}
+
+.personen-header {
+  @include flex-col(1.2rem);
+  max-width: 64rem;
+}
+
+.personen-title {
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.personen-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-grey);
+  line-height: 1.7;
+}
+
+.personen-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.2rem;
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.person-card {
+  background-color: var(--bg-white);
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.person-img-wrapper {
+  position: relative;
+  height: 32rem;
+  overflow: hidden;
+  background-color: #e8e8e8;
+}
+
+.person-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.person-card:hover .person-img {
+  transform: scale(1.04);
+}
+
+// Kuratorium spezifisch — hochkant Fotos einzoomen
+.person-card--kuratorium .person-img-wrapper {
+  height: 26rem;
+}
+
+.person-card--kuratorium .person-img {
+  filter: grayscale(100%) contrast(1.05);
+  object-fit: cover;
+  object-position: center 5%;
+  transform: none;
+  transition: filter 0.4s ease;
+}
+
+.person-card--kuratorium:hover .person-img {
+  filter: grayscale(60%) contrast(1.05);
+}
+
+.person-badge {
+  position: absolute;
+  top: 1.6rem;
+  left: 1.6rem;
+  background-color: var(--accent-gold);
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50rem;
+  z-index: 1;
+}
+
+.person-body {
+  padding: 2.8rem;
+  @include flex-col(0.8rem);
+}
+
+.person-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.person-rolle {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.person-beschreibung {
+  font-size: 1.4rem;
+  color: var(--text-grey);
+  line-height: 1.7;
+  margin-top: 0.8rem;
+}
+
+// Dokumente
+.dokumente-section {
+  @include flex-col(4rem);
+}
+
+.dokumente-header {
+  @include flex-col(1.2rem);
+  max-width: 64rem;
+}
+
+.dokumente-title {
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.dokumente-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-grey);
+  line-height: 1.7;
+}
+
+.dokumente-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  @include respond(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dokument-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--bg-white);
+  border-radius: 1.2rem;
+  padding: 2.4rem;
+  box-shadow: var(--shadow-sm);
+  border: 1.5px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: var(--accent-gold);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-0.2rem);
+
+    .dokument-download {
+      background-color: var(--primary-blue);
+    }
+  }
+}
+
+.dokument-icon {
+  width: 5.6rem;
+  height: 5.6rem;
+  min-width: 5.6rem;
+  background-color: var(--accent-gold-light);
+  border-radius: 1.2rem;
+  @include flex-center;
+}
+
+.dokument-body {
+  flex: 1;
+  @include flex-col(0.4rem);
+}
+
+.dokument-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.dokument-desc {
+  font-size: 1.3rem;
+  color: var(--text-grey);
+  line-height: 1.5;
+}
+
+.dokument-download {
+  width: 4rem;
+  height: 4rem;
+  min-width: 4rem;
+  background-color: var(--bg-light);
+  border-radius: 0.8rem;
+  @include flex-center;
+  transition: background-color 0.3s;
+}
+
+// CTA
+.ueber-cta {
+  background-color: var(--primary-blue);
+  border-radius: 2rem;
+  padding: 6.4rem;
+  text-align: center;
+  @include flex-col(2.4rem);
+  align-items: center;
+
+  h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--text-light);
+
+    @include respond(sm) {
+      font-size: 2.4rem;
+    }
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 52rem;
+    line-height: 1.6;
+  }
+}
+
+.ueber-cta-buttons {
+  display: flex;
+  gap: 1.6rem;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-gold-cta {
+  @include button-base;
+  background-color: var(--accent-gold);
+  color: var(--text-dark);
+  font-weight: 600;
+
+  &:hover {
+    background-color: var(--accent-gold-hover);
+  }
+}
+
+.btn-outline-cta {
+  @include button-base;
+  background-color: transparent;
+  color: var(--text-light);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+}
