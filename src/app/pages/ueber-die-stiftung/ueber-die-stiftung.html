@@ -131,6 +131,9 @@
           <div class="person-card">
             <div class="person-img-wrapper">
               <img [src]="person.bild" [alt]="person.name" class="person-img" />
+              @if (person.badge) {
+                <span class="person-badge">{{ person.badge }}</span>
+              }
             </div>
             <div class="person-body">
               <h3 class="person-name">{{ person.name }}</h3>

@@ -58,7 +58,7 @@ export class UeberDieStiftung {
       rolle: 'Kuratoriumsvorsitzender',
       beschreibung:
         'Langjähriger Berater des Stifters Hartmut Weiß und Testamentsvollstrecker. Seit Gründung der Stiftung im Jahr 2021 Vorsitzender des Kuratoriums.',
-      bild: '/images/people/michael-breuer.png',
+      bild: '/images/people/michael-breuer.jpg',
     },
     {
       name: 'Werner Meuther',
@@ -76,10 +76,12 @@ export class UeberDieStiftung {
       bild: '/images/people/felix-breuer.png',
     },
     {
-      name: 'John Bähr',
+      name: 'Manuel Kalb',
       rolle: 'Vorstand',
-      beschreibung: 'Vorstandsmitglied der Geschwister Weiß-Stiftung.',
-      bild: '/images/people/john-baehr.png',
+      beschreibung:
+        'Vorstandsmitglied der Geschwister Weiß-Stiftung seit dem 01.10.2026. Nachfolger von John Bähr im Vorstand.',
+      bild: '/images/people/manuel-kalb.jpg',
+      badge: 'Ab 01.10.2026',
     },
   ];
 }

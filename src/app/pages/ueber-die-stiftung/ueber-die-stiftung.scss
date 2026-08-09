@@ -233,7 +233,7 @@
 
 .person-img-wrapper {
   position: relative;
-  height: 32rem;
+  aspect-ratio: 4 / 5; // vorher: height: 32rem — Fotos sind hochkant, keine Landschaftsbox
   overflow: hidden;
   background-color: #e8e8e8;
 }
@@ -251,15 +251,15 @@
   transform: scale(1.04);
 }
 
-// Kuratorium spezifisch — hochkant Fotos einzoomen
+// Kuratorium spezifisch — hochkant Fotos, aber nicht mehr extrem hoch
 .person-card--kuratorium .person-img-wrapper {
-  height: 26rem;
+  aspect-ratio: 2 / 3;
 }
 
 .person-card--kuratorium .person-img {
   filter: grayscale(100%) contrast(1.05);
   object-fit: cover;
-  object-position: center 5%;
+  object-position: top center; // vorher: center 5%
   transform: none;
   transition: filter 0.4s ease;
 }

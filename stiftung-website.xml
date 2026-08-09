@@ -1,0 +1,4503 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.editorconfig
+.gitignore
+.prettierrc
+angular.json
+package.json
+public/docs/anerkennungsurkunde.pdf
+public/docs/freistellungsbescheid.pdf
+public/docs/geschaeftsordnung.pdf
+public/docs/satzung.pdf
+public/docs/vertretungsbescheinigung.pdf
+public/favicon.ico
+public/images/about.png
+public/images/hero.png
+public/images/logo.png
+public/images/people/breuer-group.jpg
+public/images/people/felix-breuer.png
+public/images/people/john-baehr.png
+public/images/people/michael-breuer.jpg
+public/images/people/michael-breuers.png
+public/images/people/werner-meuther.png
+public/images/projekt-main.png
+README.md
+src/app/app.config.server.ts
+src/app/app.config.ts
+src/app/app.html
+src/app/app.routes.server.ts
+src/app/app.routes.ts
+src/app/app.scss
+src/app/app.spec.ts
+src/app/app.ts
+src/app/pages/datenschutz/datenschutz.html
+src/app/pages/datenschutz/datenschutz.scss
+src/app/pages/datenschutz/datenschutz.ts
+src/app/pages/impressum/impressum.html
+src/app/pages/impressum/impressum.scss
+src/app/pages/impressum/impressum.ts
+src/app/pages/main/main.html
+src/app/pages/main/main.scss
+src/app/pages/main/main.ts
+src/app/pages/ueber-die-stiftung/ueber-die-stiftung.html
+src/app/pages/ueber-die-stiftung/ueber-die-stiftung.scss
+src/app/pages/ueber-die-stiftung/ueber-die-stiftung.ts
+src/app/util/icon/icon.html
+src/app/util/icon/icon.scss
+src/app/util/icon/icon.ts
+src/app/util/menu-modal/menu-modal.html
+src/app/util/menu-modal/menu-modal.scss
+src/app/util/menu-modal/menu-modal.ts
+src/index.html
+src/main.server.ts
+src/main.ts
+src/server.ts
+src/styles.scss
+tsconfig.app.json
+tsconfig.json
+tsconfig.spec.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".editorconfig">
+# Editor configuration, see https://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.ts]
+quote_type = single
+ij_typescript_use_double_quotes = false
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
+</file>
+
+<file path=".gitignore">
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+__screenshots__/
+
+# System files
+.DS_Store
+Thumbs.db
+</file>
+
+<file path=".prettierrc">
+{
+  "printWidth": 100,
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
+}
+</file>
+
+<file path="angular.json">
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "cli": {
+    "packageManager": "npm"
+  },
+  "newProjectRoot": "projects",
+  "projects": {
+    "gws-website": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/main.ts",
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "security": {
+              "allowedHosts": []
+            },
+            "ssr": {
+              "entry": "src/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "gws-website:build:production"
+            },
+            "development": {
+              "buildTarget": "gws-website:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    }
+  }
+}
+</file>
+
+<file path="README.md">
+# GwsWebsite
+
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+
+## Development server
+
+To start a local development server, run:
+
+```bash
+ng serve
+```
+
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Code scaffolding
+
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+</file>
+
+<file path="src/app/app.config.server.ts">
+import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
+import { provideServerRendering, withRoutes } from '@angular/ssr';
+import { appConfig } from './app.config';
+import { serverRoutes } from './app.routes.server';
+
+const serverConfig: ApplicationConfig = {
+  providers: [
+    provideServerRendering(withRoutes(serverRoutes))
+  ]
+};
+
+export const config = mergeApplicationConfig(appConfig, serverConfig);
+</file>
+
+<file path="src/app/app.routes.server.ts">
+import { RenderMode, ServerRoute } from '@angular/ssr';
+
+export const serverRoutes: ServerRoute[] = [
+  {
+    path: '**',
+    renderMode: RenderMode.Prerender
+  }
+];
+</file>
+
+<file path="src/app/app.spec.ts">
+import { TestBed } from '@angular/core/testing';
+import { App } from './app';
+
+describe('App', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [App],
+    }).compileComponents();
+  });
+
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(App);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  it('should render title', async () => {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, gws-website');
+  });
+});
+</file>
+
+<file path="src/app/pages/datenschutz/datenschutz.html">
+<section class="datenschutz-section">
+  <div class="datenschutz-container">
+    <div class="datenschutz-hero">
+      <span class="datenschutz-badge">Rechtliches</span>
+      <h1 class="datenschutz-title">Datenschutzerklärung</h1>
+      <p class="datenschutz-intro">
+        Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre
+        Daten ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, DSG).
+      </p>
+    </div>
+
+    <div class="datenschutz-blocks">
+      <div class="datenschutz-block">
+        <div class="block-header">
+          <span class="block-number">1</span>
+          <h2>Verantwortlicher</h2>
+        </div>
+        <div class="block-content">
+          <p>
+            Verantwortlich für die Datenverarbeitung ist die
+            <strong>Geschwister Weiß-Stiftung</strong> (Kontaktdaten siehe
+            <span class="block-link" (click)="routing('impressum')">Impressum</span>).
+          </p>
+        </div>
+      </div>
+
+      <div class="datenschutz-block">
+        <div class="block-header">
+          <span class="block-number">2</span>
+          <h2>Erhebung und Verarbeitung personenbezogener Daten</h2>
+        </div>
+        <div class="block-content">
+          <p>
+            Wir erheben personenbezogene Daten nur, soweit dies zur Erfüllung unserer gemeinnützigen
+            Aufgaben erforderlich ist. Dies umfasst insbesondere:
+          </p>
+          <ul>
+            <li>Kontaktanfragen über unser Formular (Name, E-Mail, Nachricht)</li>
+            <li>Spendenadministration und Zuwendungsbestätigungen</li>
+            <li>Kommunikation mit Förderern, Partnern und Begünstigten</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="datenschutz-block">
+        <div class="block-header">
+          <span class="block-number">3</span>
+          <h2>Zweck der Verarbeitung</h2>
+        </div>
+        <div class="block-content">
+          <p>Die erhobenen Daten werden ausschließlich für folgende Zwecke verwendet:</p>
+          <ul>
+            <li>Bearbeitung Ihrer Kontaktanfragen</li>
+            <li>Abwicklung und Dokumentation von Spenden</li>
+            <li>Erfüllung gesetzlicher Aufbewahrungs- und Nachweispflichten</li>
+            <li>Umsetzung unserer satzungsgemäßen gemeinnützigen Zwecke</li>
+          </ul>
+          <p class="block-hinweis">
+            Eine Weitergabe an Dritte zu kommerziellen Zwecken findet nicht statt.
+          </p>
+        </div>
+      </div>
+
+      <div class="datenschutz-block">
+        <div class="block-header">
+          <span class="block-number">4</span>
+          <h2>Weitergabe von Daten</h2>
+        </div>
+        <div class="block-content">
+          <p>Eine Weitergabe personenbezogener Daten erfolgt ausschließlich:</p>
+          <ul>
+            <li>wenn dies zur Erfüllung eines konkreten Stiftungszwecks erforderlich ist</li>
+            <li>wenn eine gesetzliche Verpflichtung besteht</li>
+            <li>oder wenn eine ausdrückliche Einwilligung vorliegt</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="datenschutz-block">
+        <div class="block-header">
+          <span class="block-number">5</span>
+          <h2>Datensicherheit</h2>
+        </div>
+        <div class="block-content">
+          <p>
+            Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten gegen
+            Manipulation, Verlust, Zerstörung oder den Zugriff unberechtigter Personen zu schützen.
+            Unsere Sicherheitsmaßnahmen werden entsprechend der technologischen Entwicklung
+            fortlaufend verbessert.
+          </p>
+        </div>
+      </div>
+
+      <div class="datenschutz-block">
+        <div class="block-header">
+          <span class="block-number">6</span>
+          <h2>Cookies & Webhosting</h2>
+        </div>
+        <div class="block-content">
+          <p>
+            Diese Website verwendet keine Tracking-Cookies oder Analyse-Tools. Die Website wird über
+            Amazon Web Services (AWS S3) gehostet. Dabei können technisch bedingt Server-Logs
+            entstehen, die IP-Adresse, Zugriffszeit und aufgerufene Seite enthalten. Diese Daten
+            werden nicht mit personenbezogenen Daten verknüpft.
+          </p>
+        </div>
+      </div>
+
+      <div class="datenschutz-block">
+        <div class="block-header">
+          <span class="block-number">7</span>
+          <h2>Ihre Rechte</h2>
+        </div>
+        <div class="block-content">
+          <p>
+            Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit folgende Rechte:
+          </p>
+          <div class="rechte-grid">
+            <div class="recht-item">
+              <app-icon
+                [iconName]="'search'"
+                [iconColor]="'#1e3a5f'"
+                [iconSize]="'2rem'"
+              ></app-icon>
+              <span>Auskunft</span>
+            </div>
+            <div class="recht-item">
+              <app-icon [iconName]="'edit'" [iconColor]="'#1e3a5f'" [iconSize]="'2rem'"></app-icon>
+              <span>Berichtigung</span>
+            </div>
+            <div class="recht-item">
+              <app-icon
+                [iconName]="'delete'"
+                [iconColor]="'#1e3a5f'"
+                [iconSize]="'2rem'"
+              ></app-icon>
+              <span>Löschung</span>
+            </div>
+            <div class="recht-item">
+              <app-icon
+                [iconName]="'pause_circle'"
+                [iconColor]="'#1e3a5f'"
+                [iconSize]="'2rem'"
+              ></app-icon>
+              <span>Einschränkung</span>
+            </div>
+            <div class="recht-item">
+              <app-icon [iconName]="'block'" [iconColor]="'#1e3a5f'" [iconSize]="'2rem'"></app-icon>
+              <span>Widerspruch</span>
+            </div>
+            <div class="recht-item">
+              <app-icon
+                [iconName]="'sync_alt'"
+                [iconColor]="'#1e3a5f'"
+                [iconSize]="'2rem'"
+              ></app-icon>
+              <span>Datenübertragbarkeit</span>
+            </div>
+          </div>
+          <p>
+            Anfragen richten Sie bitte an:
+            <a href="mailto:info@geschwister-weiss-stiftung.de" class="block-link-a"
+              >info&#64;geschwister-weiss-stiftung.de</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="datenschutz-block">
+        <div class="block-header">
+          <span class="block-number">8</span>
+          <h2>Löschung von Daten</h2>
+        </div>
+        <div class="block-content">
+          <p>
+            Personenbezogene Daten werden gelöscht, sobald sie für die Zwecke, für die sie erhoben
+            wurden, nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten
+            entgegenstehen.
+          </p>
+        </div>
+      </div>
+
+      <div class="datenschutz-block">
+        <div class="block-header">
+          <span class="block-number">9</span>
+          <h2>Beschwerderecht</h2>
+        </div>
+        <div class="block-content">
+          <p>
+            Sie haben das Recht, sich bei der zuständigen Datenschutzaufsichtsbehörde über die
+            Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.
+          </p>
+          <p>
+            <strong>Zuständige Behörde:</strong> Landesbeauftragte für Datenschutz und
+            Informationsfreiheit Nordrhein-Westfalen
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</file>
+
+<file path="src/app/pages/datenschutz/datenschutz.scss">
+@use '../../../styles' as *;
+
+.datenschutz-section {
+  background-color: var(--bg-light);
+  padding: 10rem 0 12rem;
+}
+
+.datenschutz-container {
+  @include container;
+  @include flex-col(6.4rem);
+}
+
+.datenschutz-hero {
+  @include flex-col(2rem);
+  max-width: 80rem;
+  padding-top: 2rem;
+}
+
+.datenschutz-badge {
+  display: inline-block;
+  background-color: var(--primary-blue);
+  color: var(--text-light);
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  border-radius: 50rem;
+  width: fit-content;
+}
+
+.datenschutz-title {
+  font-size: 5.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+
+  @include respond(sm) {
+    font-size: 3.6rem;
+  }
+}
+
+.datenschutz-intro {
+  font-size: 1.6rem;
+  color: var(--text-grey);
+  line-height: 1.8;
+}
+
+.datenschutz-blocks {
+  @include flex-col(2.4rem);
+}
+
+.datenschutz-block {
+  background-color: var(--bg-white);
+  border-radius: 1.6rem;
+  padding: 3.2rem;
+  box-shadow: var(--shadow-md);
+  @include flex-col(2.4rem);
+}
+
+.block-header {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--bg-light);
+
+  h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+}
+
+.block-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.6rem;
+  height: 3.6rem;
+  background-color: var(--primary-blue);
+  color: var(--text-light);
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+.block-content {
+  @include flex-col(1.2rem);
+
+  p {
+    font-size: 1.5rem;
+    color: var(--text-grey);
+    line-height: 1.8;
+
+    strong {
+      color: var(--text-dark);
+    }
+  }
+
+  ul {
+    @include flex-col(0.8rem);
+    padding-left: 2rem;
+
+    li {
+      font-size: 1.5rem;
+      color: var(--text-grey);
+      line-height: 1.7;
+    }
+  }
+}
+
+.block-link {
+  color: var(--primary-blue);
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.block-link-a {
+  color: var(--primary-blue);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.block-hinweis {
+  font-weight: 600 !important;
+  color: var(--primary-blue) !important;
+}
+
+.rechte-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin: 0.8rem 0;
+
+  @include respond(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.recht-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--bg-light);
+  padding: 1.2rem 1.6rem;
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+</file>
+
+<file path="src/app/pages/datenschutz/datenschutz.ts">
+import { Component } from '@angular/core';
+import { Icon } from '../../util/icon/icon';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-datenschutz',
+  imports: [Icon],
+  templateUrl: './datenschutz.html',
+  styleUrl: './datenschutz.scss',
+})
+export class Datenschutz {
+  constructor(private router: Router) {}
+  routing(url: string) {
+    this.router.navigate([url]).then(() => window.scrollTo(0, 0));
+  }
+}
+</file>
+
+<file path="src/app/pages/impressum/impressum.html">
+<section class="impressum-section">
+  <div class="impressum-container">
+    <div class="impressum-hero">
+      <span class="impressum-badge">Rechtliches</span>
+      <h1 class="impressum-title">Impressum</h1>
+      <p class="impressum-subtitle">Angaben gemäß § 5 TMG</p>
+    </div>
+
+    <div class="impressum-grid">
+      <div class="impressum-block">
+        <div class="impressum-block-icon">
+          <app-icon
+            [iconName]="'apartment'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.4rem'"
+          ></app-icon>
+        </div>
+        <h2>Stiftung</h2>
+        <div class="impressum-content">
+          <p><strong>Geschwister Weiß-Stiftung</strong></p>
+          <p>Musterstraße 1</p>
+          <p>41460 Neuss</p>
+          <p>Deutschland</p>
+        </div>
+      </div>
+
+      <div class="impressum-block">
+        <div class="impressum-block-icon">
+          <app-icon
+            [iconName]="'manage_accounts'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.4rem'"
+          ></app-icon>
+        </div>
+        <h2>Vorstand</h2>
+        <div class="impressum-content">
+          <p>Felix Breuer</p>
+          <p>John Bähr</p>
+        </div>
+      </div>
+
+      <div class="impressum-block">
+        <div class="impressum-block-icon">
+          <app-icon [iconName]="'mail'" [iconColor]="'#c9963a'" [iconSize]="'2.4rem'"></app-icon>
+        </div>
+        <h2>Kontakt</h2>
+        <div class="impressum-content">
+          <div class="impressum-contact-item">
+            <app-icon [iconName]="'mail'" [iconColor]="'#1e3a5f'" [iconSize]="'1.8rem'"></app-icon>
+            <a href="mailto:info@geschwister-weiss-stiftung.de"
+              >info&#64;geschwister-weiss-stiftung.de</a
+            >
+          </div>
+          <div class="impressum-contact-item">
+            <app-icon
+              [iconName]="'location_on'"
+              [iconColor]="'#1e3a5f'"
+              [iconSize]="'1.8rem'"
+            ></app-icon>
+            <span>41460 Neuss, Deutschland</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="impressum-block">
+        <div class="impressum-block-icon">
+          <app-icon [iconName]="'gavel'" [iconColor]="'#c9963a'" [iconSize]="'2.4rem'"></app-icon>
+        </div>
+        <h2>Rechtsform & Aufsicht</h2>
+        <div class="impressum-content">
+          <p>Rechtsfähige Stiftung des bürgerlichen Rechts</p>
+          <p>Stiftungsaufsicht: Bezirksregierung Düsseldorf</p>
+          <p>Az. 21.13-St.2160</p>
+        </div>
+      </div>
+
+      <div class="impressum-block impressum-block--full">
+        <div class="impressum-block-icon">
+          <app-icon
+            [iconName]="'volunteer_activism'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.4rem'"
+          ></app-icon>
+        </div>
+        <h2>Gemeinnützigkeit & Zweck</h2>
+        <div class="impressum-content">
+          <p>
+            Die Geschwister Weiß-Stiftung verfolgt ausschließlich und unmittelbar gemeinnützige
+            Zwecke im Sinne der §§ 51 ff. der Abgabenordnung.
+          </p>
+          <p>
+            Zweck der Stiftung ist die Förderung des Glaubens sowie die Unterstützung der Gesundheit
+            — insbesondere durch Rehabilitation, Behindertenhilfe und Gesundheitsprojekte in
+            Kindergärten, Schulen und Sportvereinen.
+          </p>
+          <div class="impressum-zweck-tags">
+            <span class="zweck-tag">
+              <app-icon
+                [iconName]="'menu_book'"
+                [iconColor]="'#1e3a5f'"
+                [iconSize]="'1.6rem'"
+              ></app-icon>
+              Glaubensvermittlung
+            </span>
+            <span class="zweck-tag">
+              <app-icon
+                [iconName]="'favorite'"
+                [iconColor]="'#1e3a5f'"
+                [iconSize]="'1.6rem'"
+              ></app-icon>
+              Gesundheitsförderung
+            </span>
+            <span class="zweck-tag">
+              <app-icon
+                [iconName]="'groups'"
+                [iconColor]="'#1e3a5f'"
+                [iconSize]="'1.6rem'"
+              ></app-icon>
+              Gemeinschaft
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="impressum-block impressum-block--full impressum-block--dark">
+        <div class="impressum-spenden-header">
+          <app-icon
+            [iconName]="'account_balance'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'3.2rem'"
+          ></app-icon>
+          <h2>Spendenkonto</h2>
+        </div>
+        <div class="impressum-spenden-grid">
+          <div class="spenden-item">
+            <span class="spenden-label">Kontoinhaber</span>
+            <span class="spenden-value">Geschwister Weiß-Stiftung</span>
+          </div>
+          <div class="spenden-item">
+            <span class="spenden-label">Bank</span>
+            <span class="spenden-value">Kreissparkasse Düsseldorf</span>
+          </div>
+          <div class="spenden-item">
+            <span class="spenden-label">IBAN</span>
+            <span class="spenden-value spenden-iban">DE89 3245 0000 0000 0000 00</span>
+          </div>
+          <div class="spenden-item">
+            <span class="spenden-label">BIC</span>
+            <span class="spenden-value">WELADED1DUE</span>
+          </div>
+        </div>
+        <p class="impressum-dankeschoen">Vielen Dank für Ihre Unterstützung! ♥</p>
+      </div>
+    </div>
+
+    <div class="impressum-haftung">
+      <h2>Haftungsausschluss</h2>
+      <div class="haftung-blocks">
+        <div class="haftung-block">
+          <h3>Haftung für Inhalte</h3>
+          <p>
+            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+            Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+          </p>
+        </div>
+        <div class="haftung-block">
+          <h3>Haftung für Links</h3>
+          <p>
+            Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen
+            Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter
+            verantwortlich.
+          </p>
+        </div>
+        <div class="haftung-block">
+          <h3>Urheberrecht</h3>
+          <p>
+            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+            dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art
+            der Verwertung bedürfen der schriftlichen Zustimmung.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</file>
+
+<file path="src/app/pages/impressum/impressum.scss">
+@use '../../../styles' as *;
+
+.impressum-section {
+  background-color: var(--bg-light);
+  padding: 10rem 0 12rem;
+}
+
+.impressum-container {
+  @include container;
+  @include flex-col(6.4rem);
+}
+
+// Hero
+.impressum-hero {
+  @include flex-col(1.6rem);
+  max-width: 72rem;
+  padding-top: 2rem;
+}
+
+.impressum-badge {
+  display: inline-block;
+  background-color: var(--primary-blue);
+  color: var(--text-light);
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  border-radius: 50rem;
+  width: fit-content;
+}
+
+.impressum-title {
+  font-size: 5.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+
+  @include respond(sm) {
+    font-size: 3.6rem;
+  }
+}
+
+.impressum-subtitle {
+  font-size: 1.6rem;
+  color: var(--text-grey);
+}
+
+// Grid
+.impressum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.impressum-block {
+  background-color: var(--bg-white);
+  border-radius: 1.6rem;
+  padding: 3.2rem;
+  box-shadow: var(--shadow-md);
+  @include flex-col(1.6rem);
+  border-top: 3px solid transparent;
+  transition: border-color 0.3s;
+
+  &:hover {
+    border-top-color: var(--accent-gold);
+  }
+
+  &--full {
+    grid-column: 1 / -1;
+  }
+
+  &--dark {
+    background-color: var(--primary-blue);
+    border-top-color: var(--accent-gold);
+
+    &:hover {
+      border-top-color: var(--accent-gold-hover);
+    }
+  }
+
+  h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+}
+
+.impressum-block-icon {
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: var(--accent-gold-light);
+  border-radius: 1.2rem;
+  @include flex-center;
+}
+
+.impressum-content {
+  @include flex-col(0.8rem);
+
+  p {
+    font-size: 1.5rem;
+    color: var(--text-grey);
+    line-height: 1.7;
+  }
+}
+
+.impressum-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  color: var(--text-grey);
+
+  a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.impressum-zweck-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.zweck-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background-color: var(--bg-light);
+  padding: 0.8rem 1.6rem;
+  border-radius: 50rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+// Spenden Block (dark)
+.impressum-spenden-header {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-light);
+  }
+}
+
+.impressum-spenden-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.spenden-item {
+  @include flex-col(0.4rem);
+}
+
+.spenden-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.spenden-value {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-light);
+
+  &.spenden-iban {
+    font-family: monospace;
+    font-size: 1.6rem;
+    color: var(--accent-gold);
+    letter-spacing: 0.05em;
+  }
+}
+
+.impressum-dankeschoen {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-align: center;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// Haftung
+.impressum-haftung {
+  @include flex-col(3.2rem);
+
+  h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+}
+
+.haftung-blocks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.haftung-block {
+  background-color: var(--bg-white);
+  border-radius: 1.2rem;
+  padding: 2.8rem;
+  box-shadow: var(--shadow-sm);
+  @include flex-col(1.2rem);
+
+  h3 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: var(--text-grey);
+    line-height: 1.7;
+  }
+}
+</file>
+
+<file path="src/app/pages/impressum/impressum.ts">
+import { Component } from '@angular/core';
+import { Icon } from '../../util/icon/icon';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-impressum',
+  imports: [Icon],
+  templateUrl: './impressum.html',
+  styleUrl: './impressum.scss',
+})
+export class Impressum {
+  constructor(private router: Router) {}
+  routing(url: string) {
+    this.router.navigate([url]).then(() => window.scrollTo(0, 0));
+  }
+}
+</file>
+
+<file path="src/app/pages/main/main.html">
+<!-- ===================== HERO ===================== -->
+<section class="hero-section" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-line"></div>
+      <h1 class="hero-title">Leben ist <span class="highlight">BEWEGUNG</span><br />ist Leben.</h1>
+      <p class="hero-description">
+        Die Geschwister Weiß-Stiftung - Gemeinnützig, nachhaltig und verantwortungsbewusst seit
+        2021.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn-gold" (click)="scrollToSection('spenden')">
+          Jetzt spenden
+          <app-icon [iconName]="'favorite'" [iconColor]="'#1a2d42'" [iconSize]="'2rem'"></app-icon>
+        </button>
+        <button class="btn-outline" (click)="scrollToSection('about')">Mehr erfahren</button>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-badges">
+        <span class="hero-badge-item">
+          <app-icon
+            [iconName]="'check_circle'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2rem'"
+          ></app-icon>
+          Gemeinnützig anerkannt
+        </span>
+        <span class="hero-badge-item">
+          <app-icon [iconName]="'schedule'" [iconColor]="'#c9963a'" [iconSize]="'2rem'"></app-icon>
+          Seit 2021 aktiv
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <app-icon
+      [iconName]="'arrow_downward'"
+      [iconColor]="'#ffffff'"
+      [iconSize]="'2.4rem'"
+    ></app-icon>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="about-section" id="about">
+  <div class="about-container">
+    <div class="about-image-col">
+      <div class="about-img-wrapper">
+        <img src="/images/about.png" alt="Über die Stiftung" class="about-img" />
+        <div class="about-img-badge">
+          <p class="badge-year">2021</p>
+          <p class="badge-text">Gegründet am 05.05.2021</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-text-col">
+      <div class="section-overhead">
+        <span class="overhead-line"></span>
+        <span class="overhead-label">ÜBER UNS</span>
+      </div>
+      <h2 class="about-title">Im Gedenken an <span class="highlight">Irene Weiß</span></h2>
+      <p class="about-description">
+        Die Geschwister Weiß-Stiftung wurde am 05. Mai 2021 von Hartmut Weiß gegründet – im ewigen
+        Gedenken an seine geliebte Schwester Irene Weiß.
+      </p>
+      <p class="about-description">
+        Unser Leitgedanke ist es, <strong>Menschen zu helfen und im Leben zu stärken</strong>. Mit
+        Leidenschaft und Hingabe setzen wir uns für zwei zentrale Grundpfeiler ein: die Förderung
+        des Glaubens und die Unterstützung der Gesundheit.
+      </p>
+      <div class="about-values-grid">
+        <div class="about-value-item">
+          <app-icon
+            [iconName]="'favorite'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.2rem'"
+          ></app-icon>
+          <div>
+            <p class="value-title">Gemeinnützig</p>
+            <p class="value-sub">Anerkannt und transparent</p>
+          </div>
+        </div>
+        <div class="about-value-item">
+          <app-icon [iconName]="'eco'" [iconColor]="'#c9963a'" [iconSize]="'2.2rem'"></app-icon>
+          <div>
+            <p class="value-title">Nachhaltig</p>
+            <p class="value-sub">Langfristige Projekte</p>
+          </div>
+        </div>
+        <div class="about-value-item">
+          <app-icon [iconName]="'groups'" [iconColor]="'#c9963a'" [iconSize]="'2.2rem'"></app-icon>
+          <div>
+            <p class="value-title">Verantwortung</p>
+            <p class="value-sub">Für die Gemeinschaft</p>
+          </div>
+        </div>
+        <div class="about-value-item">
+          <app-icon
+            [iconName]="'schedule'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.2rem'"
+          ></app-icon>
+          <div>
+            <p class="value-title">Seit 2021</p>
+            <p class="value-sub">Immer für Sie da</p>
+          </div>
+        </div>
+      </div>
+      <blockquote class="about-quote">
+        <p>"Jeder Mensch verdient Unterstützung – in Glauben und Gesundheit."</p>
+        <cite>— Hartmut Weiß, Gründer</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MISSION ===================== -->
+<section class="mission-section" id="mission">
+  <div class="mission-container">
+    <div class="section-header">
+      <div class="section-overhead centered">
+        <span class="overhead-line"></span>
+        <span class="overhead-label">UNSERE MISSION</span>
+        <span class="overhead-line"></span>
+      </div>
+      <h2 class="section-title">Die zwei Grundpfeiler</h2>
+      <p class="section-subtitle">
+        Unsere Stiftung konzentriert sich auf zwei zentrale Bereiche, die das menschliche Leben
+        bereichern und stärken.
+      </p>
+    </div>
+
+    <div class="mission-cards">
+      <!-- Glaubensvermittlung -->
+      <div class="mission-card mission-card--blue">
+        <div class="mission-card-icon">
+          <app-icon
+            [iconName]="'menu_book'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.8rem'"
+          ></app-icon>
+        </div>
+        <h3 class="mission-card-title">Glaubensvermittlung</h3>
+        <p class="mission-card-text">
+          Wir fördern kirchliche Institutionen und unterstützen aktiv die Ausbildung von
+          Priesteranwärtern sowie die Nachwuchsförderung im Pfarrdienst.
+        </p>
+        <ul class="mission-card-list">
+          <li>
+            <app-icon [iconName]="'check'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+            Förderung kirchlicher Institutionen
+          </li>
+          <li>
+            <app-icon [iconName]="'check'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+            Ausbildung von Priesteranwärtern
+          </li>
+          <li>
+            <app-icon [iconName]="'check'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+            Nachwuchsförderung im Pfarrdienst
+          </li>
+        </ul>
+        <div class="mission-card-watermark">
+          <app-icon
+            [iconName]="'menu_book'"
+            [iconColor]="'rgba(255,255,255,0.05)'"
+            [iconSize]="'12rem'"
+          ></app-icon>
+        </div>
+      </div>
+
+      <!-- Gesundheitsförderung -->
+      <div class="mission-card mission-card--gold">
+        <div class="mission-card-icon mission-card-icon--light">
+          <app-icon
+            [iconName]="'favorite'"
+            [iconColor]="'#ffffff'"
+            [iconSize]="'2.8rem'"
+          ></app-icon>
+        </div>
+        <h3 class="mission-card-title">Gesundheitsförderung</h3>
+        <p class="mission-card-text">
+          Wir setzen uns für Rehabilitation, Behindertenhilfe und Gesundheitsprojekte in
+          Kindergärten, Schulen und Sportvereinen ein.
+        </p>
+        <ul class="mission-card-list">
+          <li>
+            <app-icon
+              [iconName]="'check'"
+              [iconColor]="'rgba(255,255,255,0.8)'"
+              [iconSize]="'1.8rem'"
+            ></app-icon>
+            Rehabilitationssport
+          </li>
+          <li>
+            <app-icon
+              [iconName]="'check'"
+              [iconColor]="'rgba(255,255,255,0.8)'"
+              [iconSize]="'1.8rem'"
+            ></app-icon>
+            Behindertenhilfe
+          </li>
+          <li>
+            <app-icon
+              [iconName]="'check'"
+              [iconColor]="'rgba(255,255,255,0.8)'"
+              [iconSize]="'1.8rem'"
+            ></app-icon>
+            Gesundheitsprojekte
+          </li>
+        </ul>
+        <div class="mission-card-watermark">
+          <app-icon
+            [iconName]="'favorite'"
+            [iconColor]="'rgba(255,255,255,0.07)'"
+            [iconSize]="'12rem'"
+          ></app-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJEKTE ===================== -->
+<section class="projekte-section" id="projekte">
+  <div class="projekte-container">
+    <div class="section-header">
+      <div class="section-overhead centered">
+        <span class="overhead-line"></span>
+        <span class="overhead-label">ENGAGEMENT</span>
+        <span class="overhead-line"></span>
+      </div>
+      <h2 class="section-title">Unsere Projekte</h2>
+      <p class="section-subtitle">
+        Wir setzen unsere Mission durch konkrete Projekte um, die das Leben von Menschen bereichern.
+      </p>
+    </div>
+
+    <!-- Featured Project -->
+    <div class="projekt-featured">
+      <div class="projekt-featured-img">
+        <img src="/images/projekt-main.png" alt="Sendungsraum Neuss" />
+        <span class="projekt-badge">
+          <span class="projekt-badge-dot"></span>
+          Aktuelles Projekt
+        </span>
+      </div>
+      <div class="projekt-featured-body">
+        <h3 class="projekt-featured-title">Projekt: Sendungsraum Neuss</h3>
+        <p class="projekt-featured-text">
+          Unser wichtigstes aktuelles Vorhaben ist die Unterstützung des Priesternachwuchses im
+          Sendungsraum Neuss. Durch gezielte Förderung ermöglichen wir jungen Menschen, ihre
+          Berufung zu finden und kirchliche Dienste zu ergreifen.
+        </p>
+        <div class="projekt-featured-stats">
+          <div class="projekt-stat">
+            <p class="projekt-stat-value">€ 50.000+</p>
+            <p class="projekt-stat-label">Fördervolumen</p>
+          </div>
+          <div class="projekt-stat">
+            <p class="projekt-stat-value highlight-gold">2024</p>
+            <p class="projekt-stat-label">Projektstart</p>
+          </div>
+        </div>
+        <button class="btn-gold-outline" (click)="scrollToSection('spenden')">
+          Projekt unterstützen
+          <app-icon
+            [iconName]="'arrow_right_alt'"
+            [iconColor]="'#1a2d42'"
+            [iconSize]="'2rem'"
+          ></app-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- Zukünftige Vorhaben -->
+    <h3 class="projekte-sub-title">Zukünftige Vorhaben</h3>
+    <div class="projekte-future-cards">
+      <div class="projekte-future-card">
+        <app-icon [iconName]="'apartment'" [iconColor]="'#5a6a7a'" [iconSize]="'2.8rem'"></app-icon>
+        <p class="future-card-title">Gemeindezentrum-Förderung</p>
+        <p class="future-card-text">
+          Unterstützung beim Bau und der Renovierung von Gemeindezentren
+        </p>
+      </div>
+      <div class="projekte-future-card">
+        <app-icon [iconName]="'favorite'" [iconColor]="'#5a6a7a'" [iconSize]="'2.8rem'"></app-icon>
+        <p class="future-card-title">Sportprojekte für Alle</p>
+        <p class="future-card-text">Inklusive Sportangebote für Menschen mit Behinderung</p>
+      </div>
+      <div class="projekte-future-card">
+        <app-icon [iconName]="'menu_book'" [iconColor]="'#5a6a7a'" [iconSize]="'2.8rem'"></app-icon>
+        <p class="future-card-title">Bildungsinitiativen</p>
+        <p class="future-card-text">Gesundheitsaufklärung an Schulen und Kindergärten</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SPENDEN ===================== -->
+<section class="spenden-section" id="spenden">
+  <div class="spenden-container">
+    <div class="spenden-left">
+      <app-icon [iconName]="'favorite'" [iconColor]="'#c9963a'" [iconSize]="'3.2rem'"></app-icon>
+      <h2 class="spenden-title">Ihre Hilfe für einen guten Zweck</h2>
+      <p class="spenden-description">
+        Als gemeinnützige Stiftung sind wir auf die Unterstützung von Menschen angewiesen, die
+        unsere Vision teilen. Jeder Beitrag hilft uns, mehr Leben zu berühren.
+      </p>
+      <ul class="spenden-list">
+        <li>
+          <app-icon [iconName]="'check'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+          Steuerlich absetzbar nach § 53 AO
+        </li>
+        <li>
+          <app-icon [iconName]="'check'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+          100% fließt direkt in unsere Projekte
+        </li>
+        <li>
+          <app-icon [iconName]="'check'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+          Transparente Mittelverwendung
+        </li>
+      </ul>
+    </div>
+    <div class="spenden-right">
+      <div class="spenden-card">
+        <h3 class="spenden-card-title">Jetzt spenden</h3>
+        <div class="spenden-bank-block">
+          <div class="spenden-bank-header">
+            <app-icon
+              [iconName]="'account_balance'"
+              [iconColor]="'#c9963a'"
+              [iconSize]="'2rem'"
+            ></app-icon>
+            <span>Bankverbindung</span>
+          </div>
+          <div class="spenden-bank-details">
+            <p><strong>Bank:</strong> Kreissparkasse Düsseldorf</p>
+            <p><strong>IBAN:</strong> DE89 3245 0000 0000 0000 00</p>
+            <p><strong>BIC:</strong> WELADED1DUE</p>
+            <p><strong>Empfänger:</strong> Geschwister Weiß-Stiftung</p>
+          </div>
+        </div>
+        <button class="btn-gold-full" (click)="handleSpenden()">
+          <app-icon [iconName]="'mail'" [iconColor]="'#1a2d42'" [iconSize]="'2rem'"></app-icon>
+          Kontakt aufnehmen
+        </button>
+        <p class="spenden-card-hint">Für Fragen zur Spende kontaktieren Sie uns gerne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KONTAKT ===================== -->
+<section class="kontakt-section" id="kontakt">
+  <div class="kontakt-container">
+    <div class="section-header">
+      <div class="section-overhead centered">
+        <span class="overhead-line"></span>
+        <span class="overhead-label">KONTAKT</span>
+        <span class="overhead-line"></span>
+      </div>
+      <h2 class="section-title">Wir freuen uns auf Sie</h2>
+      <p class="section-subtitle">
+        Haben Sie Fragen oder möchten Sie mehr über unsere Arbeit erfahren? Schreiben Sie uns.
+      </p>
+    </div>
+
+    <div class="kontakt-grid">
+      <!-- Form -->
+      <div class="kontakt-form-card">
+        <h3 class="kontakt-form-title">Nachricht senden</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Name *</label>
+            <input
+              class="form-input"
+              type="text"
+              placeholder="Ihr vollständiger Name"
+              [(ngModel)]="formData.name"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-Mail *</label>
+            <input
+              class="form-input"
+              type="email"
+              placeholder="ihre.email&#64;beispiel.de"
+              [(ngModel)]="formData.email"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Betreff</label>
+          <select class="form-select" [(ngModel)]="formData.betreff">
+            <option value="">Bitte wählen</option>
+            <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+            <option value="Spendenanfrage">Spendenanfrage</option>
+            <option value="Projektanfrage">Projektanfrage</option>
+            <option value="Presse">Presse</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nachricht *</label>
+          <textarea
+            class="form-textarea"
+            placeholder="Wie können wir Ihnen helfen?"
+            [(ngModel)]="formData.nachricht"
+            rows="5"
+          ></textarea>
+        </div>
+        <div class="form-checkbox-row">
+          <input type="checkbox" id="datenschutz" [(ngModel)]="formData.datenschutz" />
+          <label for="datenschutz" class="form-checkbox-label">
+            Ich habe die
+            <a class="form-link" (click)="routing('datenschutz')">Datenschutzerklärung</a> gelesen
+            und akzeptiere diese. *
+          </label>
+        </div>
+        <button class="btn-dark-full" (click)="handleContactSubmit()">
+          Nachricht senden
+          <app-icon [iconName]="'send'" [iconColor]="'#ffffff'" [iconSize]="'1.8rem'"></app-icon>
+        </button>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="kontakt-info-col">
+        <div class="kontakt-info-card">
+          <app-icon
+            [iconName]="'location_on'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.4rem'"
+          ></app-icon>
+          <div>
+            <p class="kontakt-info-title">Adresse</p>
+            <p class="kontakt-info-text">Geschwister Weiß-Stiftung</p>
+            <p class="kontakt-info-text">Musterstraße 1</p>
+            <p class="kontakt-info-text">41460 Neuss</p>
+            <p class="kontakt-info-text">Deutschland</p>
+          </div>
+        </div>
+        <div class="kontakt-info-card">
+          <app-icon [iconName]="'mail'" [iconColor]="'#c9963a'" [iconSize]="'2.4rem'"></app-icon>
+          <div>
+            <p class="kontakt-info-title">E-Mail</p>
+            <a href="mailto:info@geschwister-weiss-stiftung.de" class="kontakt-info-link">
+              info&#64;geschwister-weiss-stiftung.de
+            </a>
+          </div>
+        </div>
+        <div class="kontakt-info-card kontakt-info-card--dark">
+          <app-icon
+            [iconName]="'schedule'"
+            [iconColor]="'#c9963a'"
+            [iconSize]="'2.4rem'"
+          ></app-icon>
+          <div>
+            <p class="kontakt-info-title kontakt-info-title--light">Erreichbarkeit</p>
+            <p class="kontakt-info-text--light">Montag – Freitag: 9:00 – 17:00 Uhr</p>
+            <p class="kontakt-info-text--light">Wochenende: Nach Vereinbarung</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</file>
+
+<file path="src/app/pages/main/main.scss">
+@use '../../../styles' as *;
+
+// =====================
+// SHARED SECTION STYLES
+// =====================
+
+.section-overhead {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.6rem;
+
+  &.centered {
+    justify-content: center;
+  }
+}
+
+.overhead-line {
+  flex: 0 0 3.2rem;
+  height: 2px;
+  background-color: var(--accent-gold);
+}
+
+.overhead-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--accent-gold);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 6.4rem;
+}
+
+.section-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1.6rem;
+  line-height: 1.2;
+
+  @include respond(sm) {
+    font-size: 3rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.6rem;
+  color: var(--text-grey);
+  line-height: 1.6;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.highlight {
+  color: var(--accent-gold);
+}
+
+.highlight-gold {
+  color: var(--accent-gold) !important;
+}
+
+// =====================
+// HERO
+// =====================
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 7.2rem);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/hero.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(15, 28, 45, 0.92) 0%,
+    rgba(15, 28, 45, 0.85) 35%,
+    rgba(15, 28, 45, 0.55) 65%,
+    rgba(15, 28, 45, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+.hero-container {
+  @include container;
+  position: relative;
+  z-index: 2;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.hero-content {
+  max-width: 64rem;
+  @include flex-col(0);
+}
+
+.hero-line {
+  width: 4rem;
+  height: 3px;
+  background-color: var(--accent-gold);
+  margin-bottom: 2.8rem;
+}
+
+.hero-title {
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--text-light);
+  line-height: 1.1;
+  margin-bottom: 2.4rem;
+
+  @include respond(md) {
+    font-size: 4.4rem;
+  }
+  @include respond(sm) {
+    font-size: 3.4rem;
+  }
+}
+
+.hero-description {
+  font-size: 1.7rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  max-width: 50rem;
+  margin-bottom: 4rem;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-bottom: 4.8rem;
+
+  @include respond(sm) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.btn-gold {
+  @include button-base;
+  background-color: var(--accent-gold);
+  color: var(--text-dark);
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(201, 150, 58, 0.4);
+
+  &:hover {
+    background-color: var(--accent-gold-hover);
+    transform: translateY(-0.1rem);
+  }
+}
+
+.btn-outline {
+  @include button-base;
+  background-color: transparent;
+  color: var(--text-light);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.hero-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin-bottom: 3.2rem;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 3.2rem;
+  flex-wrap: wrap;
+}
+
+.hero-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 3.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce 2s infinite;
+  opacity: 0.7;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(0.8rem);
+  }
+}
+
+// =====================
+// ABOUT
+// =====================
+
+.about-section {
+  background-color: var(--bg-white);
+  padding: 12rem 0;
+}
+
+.about-container {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9.6rem;
+  align-items: center;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 5.6rem;
+  }
+}
+
+.about-image-col {
+  position: relative;
+}
+
+.about-img-wrapper {
+  position: relative;
+  border-radius: 1.6rem;
+  overflow: visible;
+}
+
+.about-img {
+  width: 100%;
+  height: auto;
+  border-radius: 1.6rem;
+  box-shadow: var(--shadow-lg);
+  display: block;
+}
+
+.about-img-badge {
+  position: absolute;
+  bottom: -2.4rem;
+  left: -2.4rem;
+  background-color: var(--bg-white);
+  border-radius: 1.2rem;
+  padding: 2rem 2.8rem;
+  box-shadow: var(--shadow-md);
+
+  @include respond(md) {
+    bottom: 2rem;
+    left: 2rem;
+  }
+}
+
+.badge-year {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.badge-text {
+  font-size: 1.3rem;
+  color: var(--text-grey);
+  margin-top: 0.4rem;
+}
+
+.about-text-col {
+  @include flex-col(0);
+}
+
+.about-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: 2.4rem;
+
+  @include respond(sm) {
+    font-size: 3rem;
+  }
+}
+
+.about-description {
+  font-size: 1.5rem;
+  color: var(--text-grey);
+  line-height: 1.7;
+  margin-bottom: 1.6rem;
+
+  strong {
+    color: var(--text-dark);
+  }
+}
+
+.about-values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 3.2rem 0;
+}
+
+.about-value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.value-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.3rem;
+}
+
+.value-sub {
+  font-size: 1.3rem;
+  color: var(--text-grey);
+}
+
+.about-quote {
+  border-left: 3px solid var(--accent-gold);
+  padding-left: 2rem;
+  margin-top: 0.8rem;
+
+  p {
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--text-grey);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+
+  cite {
+    font-size: 1.3rem;
+    color: var(--text-grey);
+    font-style: normal;
+  }
+}
+
+// =====================
+// MISSION
+// =====================
+
+.mission-section {
+  background-color: var(--bg-light);
+  padding: 12rem 0;
+}
+
+.mission-container {
+  @include container;
+}
+
+.mission-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mission-card {
+  position: relative;
+  border-radius: 2rem;
+  padding: 4rem;
+  overflow: hidden;
+  @include flex-col(2.4rem);
+}
+
+.mission-card--blue {
+  background-color: var(--primary-blue);
+  color: var(--text-light);
+}
+
+.mission-card--gold {
+  background: linear-gradient(135deg, #b5802a 0%, #8a6020 40%, #6a7a8a 100%);
+  color: var(--text-light);
+}
+
+.mission-card-icon {
+  width: 5.2rem;
+  height: 5.2rem;
+  border-radius: 1.2rem;
+  background-color: rgba(255, 255, 255, 0.12);
+  @include flex-center;
+}
+
+.mission-card-icon--light {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.mission-card-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.mission-card-text {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+}
+
+.mission-card-list {
+  list-style: none;
+  @include flex-col(1.2rem);
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.mission-card-watermark {
+  position: absolute;
+  bottom: -1.6rem;
+  right: -1.6rem;
+  pointer-events: none;
+}
+
+// =====================
+// PROJEKTE
+// =====================
+
+.projekte-section {
+  background-color: var(--bg-white);
+  padding: 12rem 0;
+}
+
+.projekte-container {
+  @include container;
+}
+
+.projekt-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--primary-blue);
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 6.4rem;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projekt-featured-img {
+  position: relative;
+  min-height: 32rem;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.projekt-badge {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background-color: var(--accent-gold);
+  color: var(--text-dark);
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  border-radius: 50rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.projekt-badge-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background-color: var(--text-dark);
+}
+
+.projekt-featured-body {
+  padding: 4rem;
+  @include flex-col(2.4rem);
+  justify-content: center;
+}
+
+.projekt-featured-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.projekt-featured-text {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+}
+
+.projekt-featured-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+}
+
+.projekt-stat {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.6rem 2rem;
+}
+
+.projekt-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 0.4rem;
+}
+
+.projekt-stat-label {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.btn-gold-outline {
+  @include button-base;
+  background-color: var(--accent-gold);
+  color: var(--text-dark);
+  font-weight: 600;
+  width: fit-content;
+
+  &:hover {
+    background-color: var(--accent-gold-hover);
+  }
+}
+
+.projekte-sub-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 3.2rem;
+}
+
+.projekte-future-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projekte-future-card {
+  background-color: var(--bg-light);
+  border-radius: 1.2rem;
+  padding: 3.2rem 2.8rem;
+  @include flex-col(1.6rem);
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition:
+    box-shadow 0.3s,
+    transform 0.3s;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-0.2rem);
+  }
+}
+
+.future-card-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.future-card-text {
+  font-size: 1.4rem;
+  color: var(--text-grey);
+  line-height: 1.6;
+}
+
+// =====================
+// SPENDEN
+// =====================
+
+.spenden-section {
+  background-color: var(--bg-dark);
+  padding: 12rem 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle at 20% 50%,
+      rgba(201, 150, 58, 0.06) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+}
+
+.spenden-container {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  align-items: center;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 5.6rem;
+  }
+}
+
+.spenden-left {
+  @include flex-col(2.8rem);
+}
+
+.spenden-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--text-light);
+  line-height: 1.2;
+
+  @include respond(sm) {
+    font-size: 3rem;
+  }
+}
+
+.spenden-description {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  max-width: 48rem;
+}
+
+.spenden-list {
+  list-style: none;
+  @include flex-col(1.6rem);
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+.spenden-card {
+  background-color: var(--bg-white);
+  border-radius: 2rem;
+  padding: 4rem;
+  box-shadow: var(--shadow-lg);
+  @include flex-col(2.4rem);
+}
+
+.spenden-card-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.spenden-bank-block {
+  background-color: var(--bg-light);
+  border-radius: 1.2rem;
+  padding: 2.4rem;
+  @include flex-col(1.6rem);
+}
+
+.spenden-bank-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.spenden-bank-details {
+  @include flex-col(0.8rem);
+
+  p {
+    font-size: 1.4rem;
+    color: var(--text-grey);
+
+    strong {
+      color: var(--text-dark);
+    }
+  }
+}
+
+.btn-gold-full {
+  @include button-base;
+  background-color: var(--accent-gold);
+  color: var(--text-dark);
+  font-weight: 600;
+  width: 100%;
+  justify-content: center;
+  font-size: 1.7rem;
+
+  &:hover {
+    background-color: var(--accent-gold-hover);
+  }
+}
+
+.spenden-card-hint {
+  font-size: 1.3rem;
+  color: var(--text-grey);
+  text-align: center;
+}
+
+// =====================
+// KONTAKT
+// =====================
+
+.kontakt-section {
+  background-color: var(--bg-light);
+  padding: 12rem 0;
+}
+
+.kontakt-container {
+  @include container;
+}
+
+.kontakt-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3.2rem;
+  align-items: start;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kontakt-form-card {
+  background-color: var(--bg-white);
+  border-radius: 1.6rem;
+  padding: 4rem;
+  box-shadow: var(--shadow-md);
+  @include flex-col(2rem);
+}
+
+.kontakt-form-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  @include flex-col(0.8rem);
+}
+
+.form-label {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  font-family: inherit;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  border: 1.5px solid var(--border-color);
+  border-radius: 0.8rem;
+  padding: 1.2rem 1.6rem;
+  width: 100%;
+  transition: border-color 0.2s;
+  outline: none;
+
+  &:focus {
+    border-color: var(--primary-blue);
+  }
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 12rem;
+}
+
+.form-checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+
+  input[type='checkbox'] {
+    margin-top: 0.3rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    cursor: pointer;
+    accent-color: var(--primary-blue);
+  }
+}
+
+.form-checkbox-label {
+  font-size: 1.4rem;
+  color: var(--text-grey);
+  line-height: 1.5;
+}
+
+.form-link {
+  color: var(--primary-blue);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-dark-full {
+  @include button-base;
+  background-color: var(--primary-blue);
+  color: var(--text-light);
+  font-weight: 600;
+  width: fit-content;
+
+  &:hover {
+    background-color: var(--primary-blue-hover);
+  }
+}
+
+.kontakt-info-col {
+  @include flex-col(1.6rem);
+}
+
+.kontakt-info-card {
+  background-color: var(--bg-white);
+  border-radius: 1.2rem;
+  padding: 2.4rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6rem;
+  border: 1px solid var(--border-color);
+}
+
+.kontakt-info-card--dark {
+  background-color: var(--primary-blue);
+  border-color: transparent;
+}
+
+.kontakt-info-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.8rem;
+
+  &--light {
+    color: var(--text-light);
+  }
+}
+
+.kontakt-info-text {
+  font-size: 1.4rem;
+  color: var(--text-grey);
+  line-height: 1.6;
+}
+
+.kontakt-info-text--light {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+}
+
+.kontakt-info-link {
+  font-size: 1.4rem;
+  color: var(--accent-gold);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+</file>
+
+<file path="src/app/pages/main/main.ts">
+import { Component, inject, signal } from '@angular/core';
+import { Icon } from '../../util/icon/icon';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-main',
+  imports: [Icon, FormsModule],
+  templateUrl: './main.html',
+  styleUrl: './main.scss',
+})
+export class Main {
+  private router = inject(Router);
+
+  formData = {
+    name: '',
+    email: '',
+    betreff: '',
+    nachricht: '',
+    datenschutz: false,
+  };
+
+  scrollToSection(id: string) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  routing(url: string) {
+    this.router.navigate([url]).then(() => window.scrollTo(0, 0));
+  }
+
+  handleSpenden() {
+    window.location.href = 'mailto:info@geschwister-weiss-stiftung.de?subject=Spende';
+  }
+
+  handleContactSubmit() {
+    if (!this.formData.datenschutz) return;
+    const subject = encodeURIComponent(this.formData.betreff || 'Kontaktanfrage');
+    const body = encodeURIComponent(
+      `Name: ${this.formData.name}\nE-Mail: ${this.formData.email}\n\n${this.formData.nachricht}`,
+    );
+    window.location.href = `mailto:info@geschwister-weiss-stiftung.de?subject=${subject}&body=${body}`;
+  }
+}
+</file>
+
+<file path="src/app/pages/ueber-die-stiftung/ueber-die-stiftung.html">
+<section class="ueber-section">
+  <div class="ueber-container">
+    <!-- Hero -->
+    <div class="ueber-hero">
+      <div class="ueber-hero-text">
+        <div class="section-overhead">
+          <span class="overhead-line"></span>
+          <span class="overhead-label">ÜBER DIE STIFTUNG</span>
+        </div>
+        <h1 class="ueber-title">Im Gedenken an <span class="highlight">Irene Weiß</span></h1>
+        <p class="ueber-subtitle">
+          Die Geschichte einer Stiftung, die aus Liebe entstand — und aus dem Wunsch, anderen
+          Menschen zu helfen.
+        </p>
+      </div>
+    </div>
+
+    <!-- Geschichte -->
+    <div class="geschichte-section">
+      <div class="geschichte-label">
+        <span class="overhead-line"></span>
+        <span class="overhead-label">GESCHICHTE</span>
+      </div>
+      <h2 class="geschichte-title">Die Entstehung der Stiftung</h2>
+      <div class="geschichte-content">
+        <div class="geschichte-text">
+          <p>
+            Der Stifter, Herr Hartmut Weiß, geboren am 02.02.1941, bestimmte bereits mit
+            privatschriftlichem Testament vom 15.08.2011 die Geschwister Weiß-Stiftung als alleinige
+            Erbin und benannte deren langjährigen Berater bzw. den heutigen Kuratoriumsvorsitzenden
+            der Stiftung, Herrn Michael Breuer, geboren am 08.08.1963, zum Testamentsvollstrecker.
+          </p>
+          <p>
+            Aufgrund des schlechten gesundheitlichen Zustandes des Stifters wurden mit
+            Stiftungsgeschäft vom 05.05.2021 (Beurkundung durch den Notar Dr. Burkhard Pünder/UR.
+            Nr. P 1260/2021) bereits zu Lebzeiten des Stifters erhebliche Teile seines Vermögens auf
+            die Stiftung (Az. 21.13-St.2160) übertragen und durch notarielles Testament (UR. Nr. P
+            1261/2021) wiederum die Stiftung zu dessen alleiniger und unbeschränkter Erbin bzw. Herr
+            Michael Breuer zum Testamentsvollstrecker berufen.
+          </p>
+          <div class="geschichte-memorial">
+            <app-icon
+              [iconName]="'church'"
+              [iconColor]="'#c9963a'"
+              [iconSize]="'2.4rem'"
+            ></app-icon>
+            <p>
+              <strong>† Durch den Tod des Stifters am 15.07.2022</strong> wurde nunmehr sein
+              vollständiges Vermögen in die Stiftung eingebracht.
+            </p>
+          </div>
+        </div>
+        <div class="geschichte-timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <span class="timeline-year">2011</span>
+              <p class="timeline-text">
+                Privatschriftliches Testament — Stiftung als alleinige Erbin bestimmt
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot timeline-dot--gold"></div>
+            <div class="timeline-body">
+              <span class="timeline-year">05.05.2021</span>
+              <p class="timeline-text">
+                Gründung der Stiftung durch notarielles Stiftungsgeschäft (UR. Nr. P 1260/2021)
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot timeline-dot--memorial"></div>
+            <div class="timeline-body">
+              <span class="timeline-year">15.07.2022</span>
+              <p class="timeline-text">
+                † Tod des Stifters Hartmut Weiß — vollständiges Vermögen in die Stiftung eingebracht
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kuratorium -->
+    <div class="personen-section">
+      <div class="personen-header">
+        <div class="section-overhead">
+          <span class="overhead-line"></span>
+          <span class="overhead-label">GREMIEN</span>
+        </div>
+        <h2 class="personen-title">Kuratorium</h2>
+        <p class="personen-subtitle">
+          Das Kuratorium überwacht die Tätigkeit des Vorstands und berät die Stiftung in
+          grundsätzlichen Angelegenheiten.
+        </p>
+      </div>
+      <div class="personen-cards">
+        @for (person of kuratorium; track person.name) {
+          <div class="person-card person-card--kuratorium">
+            <div class="person-img-wrapper">
+              <img [src]="person.bild" [alt]="person.name" class="person-img" />
+              @if (person.rolle === 'Kuratoriumsvorsitzender') {
+                <span class="person-badge">Vorsitzender</span>
+              }
+            </div>
+            <div class="person-body">
+              <h3 class="person-name">{{ person.name }}</h3>
+              <p class="person-rolle">{{ person.rolle }}</p>
+              <p class="person-beschreibung">{{ person.beschreibung }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Vorstand -->
+    <div class="personen-section">
+      <div class="personen-header">
+        <div class="section-overhead">
+          <span class="overhead-line"></span>
+          <span class="overhead-label">GREMIEN</span>
+        </div>
+        <h2 class="personen-title">Vorstand</h2>
+        <p class="personen-subtitle">
+          Der Vorstand führt die Geschäfte der Stiftung und setzt die satzungsgemäßen Zwecke um.
+        </p>
+      </div>
+      <div class="personen-cards">
+        @for (person of vorstand; track person.name) {
+          <div class="person-card">
+            <div class="person-img-wrapper">
+              <img [src]="person.bild" [alt]="person.name" class="person-img" />
+            </div>
+            <div class="person-body">
+              <h3 class="person-name">{{ person.name }}</h3>
+              <p class="person-rolle">{{ person.rolle }}</p>
+              <p class="person-beschreibung">{{ person.beschreibung }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Dokumente -->
+    <div class="dokumente-section">
+      <div class="dokumente-header">
+        <div class="section-overhead">
+          <span class="overhead-line"></span>
+          <span class="overhead-label">TRANSPARENZ</span>
+        </div>
+        <h2 class="dokumente-title">Dokumente & Downloads</h2>
+        <p class="dokumente-subtitle">
+          Alle wichtigen Stiftungsdokumente stehen Ihnen hier zur Ansicht und zum Download bereit.
+        </p>
+      </div>
+      <div class="dokumente-grid">
+        @for (doc of docs; track doc.title) {
+          <div class="dokument-card" (click)="openDoc(doc.path)">
+            <div class="dokument-icon">
+              <app-icon
+                [iconName]="doc.icon"
+                [iconColor]="'#c9963a'"
+                [iconSize]="'2.8rem'"
+              ></app-icon>
+            </div>
+            <div class="dokument-body">
+              <h3 class="dokument-title">{{ doc.title }}</h3>
+              <p class="dokument-desc">{{ doc.description }}</p>
+            </div>
+            <div class="dokument-download">
+              <app-icon
+                [iconName]="'download'"
+                [iconColor]="'#1e3a5f'"
+                [iconSize]="'2.2rem'"
+              ></app-icon>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="ueber-cta">
+      <h2>Möchten Sie die Stiftung unterstützen?</h2>
+      <p>Jeder Beitrag hilft uns, unsere Mission fortzuführen und mehr Menschen zu erreichen.</p>
+      <div class="ueber-cta-buttons">
+        <button class="btn-gold-cta" (click)="routing('')">
+          <app-icon [iconName]="'favorite'" [iconColor]="'#1a2d42'" [iconSize]="'2rem'"></app-icon>
+          Jetzt spenden
+        </button>
+        <button class="btn-outline-cta" (click)="routing('')">Zurück zur Startseite</button>
+      </div>
+    </div>
+  </div>
+</section>
+</file>
+
+<file path="src/app/pages/ueber-die-stiftung/ueber-die-stiftung.scss">
+@use '../../../styles' as *;
+
+.ueber-section {
+  background-color: var(--bg-light);
+  padding: 10rem 0 12rem;
+}
+
+.ueber-container {
+  @include container;
+  @include flex-col(10rem);
+}
+
+// Shared
+.section-overhead {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.overhead-line {
+  flex: 0 0 3.2rem;
+  height: 2px;
+  background-color: var(--accent-gold);
+}
+
+.overhead-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--accent-gold);
+}
+
+.highlight {
+  color: var(--accent-gold);
+}
+
+// Hero
+.ueber-hero {
+  padding-top: 2rem;
+  max-width: 80rem;
+}
+
+.ueber-title {
+  font-size: 5.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.1;
+  margin-bottom: 2rem;
+
+  @include respond(sm) {
+    font-size: 3.6rem;
+  }
+}
+
+.ueber-subtitle {
+  font-size: 1.8rem;
+  color: var(--text-grey);
+  line-height: 1.7;
+}
+
+// Geschichte
+.geschichte-section {
+  @include flex-col(3.2rem);
+}
+
+.geschichte-label {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.geschichte-title {
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+
+  @include respond(sm) {
+    font-size: 2.8rem;
+  }
+}
+
+.geschichte-content {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 6.4rem;
+  align-items: start;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+.geschichte-text {
+  @include flex-col(2rem);
+
+  p {
+    font-size: 1.5rem;
+    color: var(--text-grey);
+    line-height: 1.8;
+  }
+}
+
+.geschichte-memorial {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6rem;
+  background-color: var(--bg-white);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: 0 1.2rem 1.2rem 0;
+  padding: 2.4rem;
+  box-shadow: var(--shadow-sm);
+
+  p {
+    font-size: 1.5rem;
+    color: var(--text-grey);
+    line-height: 1.7;
+
+    strong {
+      color: var(--text-dark);
+    }
+  }
+}
+
+.geschichte-timeline {
+  @include flex-col(0);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 1.1rem;
+    top: 1.2rem;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-blue), var(--accent-gold), #888);
+  }
+}
+
+.timeline-item {
+  display: flex;
+  gap: 2.4rem;
+  padding-bottom: 3.6rem;
+  position: relative;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.timeline-dot {
+  width: 2.4rem;
+  height: 2.4rem;
+  min-width: 2.4rem;
+  border-radius: 50%;
+  background-color: var(--primary-blue);
+  border: 3px solid var(--bg-light);
+  margin-top: 0.4rem;
+  position: relative;
+  z-index: 1;
+
+  &--gold {
+    background-color: var(--accent-gold);
+  }
+  &--memorial {
+    background-color: #666;
+  }
+}
+
+.timeline-body {
+  @include flex-col(0.6rem);
+}
+
+.timeline-year {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.timeline-text {
+  font-size: 1.4rem;
+  color: var(--text-grey);
+  line-height: 1.6;
+}
+
+// Personen
+.personen-section {
+  @include flex-col(4rem);
+}
+
+.personen-header {
+  @include flex-col(1.2rem);
+  max-width: 64rem;
+}
+
+.personen-title {
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.personen-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-grey);
+  line-height: 1.7;
+}
+
+.personen-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.2rem;
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.person-card {
+  background-color: var(--bg-white);
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.person-img-wrapper {
+  position: relative;
+  height: 32rem;
+  overflow: hidden;
+  background-color: #e8e8e8;
+}
+
+.person-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.person-card:hover .person-img {
+  transform: scale(1.04);
+}
+
+// Kuratorium spezifisch — hochkant Fotos einzoomen
+.person-card--kuratorium .person-img-wrapper {
+  height: 26rem;
+}
+
+.person-card--kuratorium .person-img {
+  filter: grayscale(100%) contrast(1.05);
+  object-fit: cover;
+  object-position: center 5%;
+  transform: none;
+  transition: filter 0.4s ease;
+}
+
+.person-card--kuratorium:hover .person-img {
+  filter: grayscale(60%) contrast(1.05);
+}
+
+.person-badge {
+  position: absolute;
+  top: 1.6rem;
+  left: 1.6rem;
+  background-color: var(--accent-gold);
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50rem;
+  z-index: 1;
+}
+
+.person-body {
+  padding: 2.8rem;
+  @include flex-col(0.8rem);
+}
+
+.person-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.person-rolle {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.person-beschreibung {
+  font-size: 1.4rem;
+  color: var(--text-grey);
+  line-height: 1.7;
+  margin-top: 0.8rem;
+}
+
+// Dokumente
+.dokumente-section {
+  @include flex-col(4rem);
+}
+
+.dokumente-header {
+  @include flex-col(1.2rem);
+  max-width: 64rem;
+}
+
+.dokumente-title {
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.dokumente-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-grey);
+  line-height: 1.7;
+}
+
+.dokumente-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  @include respond(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dokument-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--bg-white);
+  border-radius: 1.2rem;
+  padding: 2.4rem;
+  box-shadow: var(--shadow-sm);
+  border: 1.5px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: var(--accent-gold);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-0.2rem);
+
+    .dokument-download {
+      background-color: var(--primary-blue);
+    }
+  }
+}
+
+.dokument-icon {
+  width: 5.6rem;
+  height: 5.6rem;
+  min-width: 5.6rem;
+  background-color: var(--accent-gold-light);
+  border-radius: 1.2rem;
+  @include flex-center;
+}
+
+.dokument-body {
+  flex: 1;
+  @include flex-col(0.4rem);
+}
+
+.dokument-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.dokument-desc {
+  font-size: 1.3rem;
+  color: var(--text-grey);
+  line-height: 1.5;
+}
+
+.dokument-download {
+  width: 4rem;
+  height: 4rem;
+  min-width: 4rem;
+  background-color: var(--bg-light);
+  border-radius: 0.8rem;
+  @include flex-center;
+  transition: background-color 0.3s;
+}
+
+// CTA
+.ueber-cta {
+  background-color: var(--primary-blue);
+  border-radius: 2rem;
+  padding: 6.4rem;
+  text-align: center;
+  @include flex-col(2.4rem);
+  align-items: center;
+
+  h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--text-light);
+
+    @include respond(sm) {
+      font-size: 2.4rem;
+    }
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 52rem;
+    line-height: 1.6;
+  }
+}
+
+.ueber-cta-buttons {
+  display: flex;
+  gap: 1.6rem;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-gold-cta {
+  @include button-base;
+  background-color: var(--accent-gold);
+  color: var(--text-dark);
+  font-weight: 600;
+
+  &:hover {
+    background-color: var(--accent-gold-hover);
+  }
+}
+
+.btn-outline-cta {
+  @include button-base;
+  background-color: transparent;
+  color: var(--text-light);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+}
+</file>
+
+<file path="src/app/pages/ueber-die-stiftung/ueber-die-stiftung.ts">
+import { Component } from '@angular/core';
+import { Icon } from '../../util/icon/icon';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-ueber-die-stiftung',
+  imports: [Icon],
+  templateUrl: './ueber-die-stiftung.html',
+  styleUrl: './ueber-die-stiftung.scss',
+})
+export class UeberDieStiftung {
+  constructor(private router: Router) {}
+
+  routing(url: string) {
+    this.router.navigate([url]).then(() => window.scrollTo(0, 0));
+  }
+
+  openDoc(path: string) {
+    window.open(path, '_blank');
+  }
+
+  docs = [
+    {
+      title: 'Satzung',
+      description: 'Die offizielle Satzung der Geschwister Weiß-Stiftung',
+      icon: 'gavel',
+      path: '/docs/satzung.pdf',
+    },
+    {
+      title: 'Geschäftsordnung',
+      description: 'Geschäftsordnung der Geschwister Weiß-Stiftung',
+      icon: 'article',
+      path: '/docs/geschaeftsordnung.pdf',
+    },
+    {
+      title: 'Vertretungsbescheinigung',
+      description: 'Offizielle Vertretungsbescheinigung der Stiftung',
+      icon: 'badge',
+      path: '/docs/vertretungsbescheinigung.pdf',
+    },
+    {
+      title: 'Anerkennungsurkunde',
+      description: 'Behördliche Anerkennungsurkunde der Stiftung',
+      icon: 'workspace_premium',
+      path: '/docs/anerkennungsurkunde.pdf',
+    },
+    {
+      title: 'Freistellungsbescheid',
+      description: 'Steuerlicher Freistellungsbescheid — Nachweis der Gemeinnützigkeit',
+      icon: 'verified',
+      path: '/docs/freistellungsbescheid.pdf',
+    },
+  ];
+
+  kuratorium = [
+    {
+      name: 'Michael Breuer',
+      rolle: 'Kuratoriumsvorsitzender',
+      beschreibung:
+        'Langjähriger Berater des Stifters Hartmut Weiß und Testamentsvollstrecker. Seit Gründung der Stiftung im Jahr 2021 Vorsitzender des Kuratoriums.',
+      bild: '/images/people/michael-breuer.jpg',
+    },
+    {
+      name: 'Werner Meuther',
+      rolle: 'Kuratoriumsmitglied',
+      beschreibung: 'Mitglied des Kuratoriums der Geschwister Weiß-Stiftung.',
+      bild: '/images/people/werner-meuther.png',
+    },
+  ];
+
+  vorstand = [
+    {
+      name: 'Felix Breuer',
+      rolle: 'Vorstand',
+      beschreibung: 'Vorstandsmitglied der Geschwister Weiß-Stiftung.',
+      bild: '/images/people/felix-breuer.png',
+    },
+    {
+      name: 'John Bähr',
+      rolle: 'Vorstand',
+      beschreibung: 'Vorstandsmitglied der Geschwister Weiß-Stiftung.',
+      bild: '/images/people/john-baehr.png',
+    },
+  ];
+}
+</file>
+
+<file path="src/app/util/icon/icon.html">
+<div class="icon-container">
+  <span
+    class="material-symbols-outlined"
+    [ngStyle]="{
+      fontSize: iconSize,
+      color: iconColor,
+      height: '100%',
+      width: '100%',
+    }"
+    >{{ iconName }}</span
+  >
+</div>
+</file>
+
+<file path="src/app/util/icon/icon.scss">
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-container span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</file>
+
+<file path="src/app/util/icon/icon.ts">
+import { NgStyle } from '@angular/common';
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-icon',
+  imports: [NgStyle],
+  templateUrl: './icon.html',
+  styleUrl: './icon.scss',
+})
+export class Icon {
+  @Input() iconName!: string;
+  @Input() iconSize!: string;
+  @Input() iconColor!: string;
+}
+</file>
+
+<file path="src/app/util/menu-modal/menu-modal.html">
+<div class="modal-wrapper">
+  <nav class="main-nav">
+    <ul class="main-nav-list">
+      <li>
+        <button class="main-nav-link-button" (click)="closeModal('ueber-die-stiftung')">
+          Über die Stiftung
+        </button>
+      </li>
+      <li>
+        <button class="main-nav-link-button" (click)="closeModal('projekte')">
+          Unsere Projekte
+        </button>
+      </li>
+      <li>
+        <button class="main-nav-link-button" (click)="closeModal('impressum')">Impressum</button>
+      </li>
+      <li>
+        <button class="main-nav-link-button" (click)="closeModal('datenschutz')">
+          Datenschutz
+        </button>
+      </li>
+      <li>
+        <button class="main-nav-link-button cta-link" (click)="closeModal('spenden')">
+          Jetzt unterstützen
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+</file>
+
+<file path="src/app/util/menu-modal/menu-modal.scss">
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #1e3a5f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  width: 100%;
+  padding: 0 3.2rem;
+}
+
+.main-nav-link-button {
+  font-family: 'Rubik', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: none;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 1.2rem 2.4rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: center;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &.cta-link {
+    background-color: #c9963a;
+    color: #1a2d42;
+    border-radius: 0.8rem;
+    margin-top: 1.6rem;
+    padding: 1.4rem 2.4rem;
+    font-weight: 600;
+
+    &:hover {
+      background-color: #d9a84a;
+    }
+  }
+}
+</file>
+
+<file path="src/app/util/menu-modal/menu-modal.ts">
+import { Component, inject } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-menu-modal',
+  imports: [],
+  templateUrl: './menu-modal.html',
+  styleUrl: './menu-modal.scss',
+})
+export class MenuModal {
+  private dialogRef: MatDialogRef<MenuModal> = inject(MatDialogRef);
+  private router = inject(Router);
+
+  closeModal(element: string) {
+    const routes = ['impressum', 'datenschutz', 'ueber-die-stiftung'];
+    if (routes.includes(element)) {
+      this.router.navigate([`/${element}`]).then(() => {
+        this.dialogRef.close();
+      });
+    } else {
+      this.dialogRef.close(element);
+    }
+  }
+}
+</file>
+
+<file path="src/main.server.ts">
+import { BootstrapContext, bootstrapApplication } from '@angular/platform-browser';
+import { App } from './app/app';
+import { config } from './app/app.config.server';
+
+const bootstrap = (context: BootstrapContext) =>
+    bootstrapApplication(App, config, context);
+
+export default bootstrap;
+</file>
+
+<file path="src/main.ts">
+import { bootstrapApplication } from '@angular/platform-browser';
+import { appConfig } from './app/app.config';
+import { App } from './app/app';
+
+bootstrapApplication(App, appConfig)
+  .catch((err) => console.error(err));
+</file>
+
+<file path="src/server.ts">
+import {
+  AngularNodeAppEngine,
+  createNodeRequestHandler,
+  isMainModule,
+  writeResponseToNodeResponse,
+} from '@angular/ssr/node';
+import express from 'express';
+import { join } from 'node:path';
+
+const browserDistFolder = join(import.meta.dirname, '../browser');
+
+const app = express();
+const angularApp = new AngularNodeAppEngine();
+
+/**
+ * Example Express Rest API endpoints can be defined here.
+ * Uncomment and define endpoints as necessary.
+ *
+ * Example:
+ * ```ts
+ * app.get('/api/{*splat}', (req, res) => {
+ *   // Handle API request
+ * });
+ * ```
+ */
+
+/**
+ * Serve static files from /browser
+ */
+app.use(
+  express.static(browserDistFolder, {
+    maxAge: '1y',
+    index: false,
+    redirect: false,
+  }),
+);
+
+/**
+ * Handle all other requests by rendering the Angular application.
+ */
+app.use((req, res, next) => {
+  angularApp
+    .handle(req)
+    .then((response) =>
+      response ? writeResponseToNodeResponse(response, res) : next(),
+    )
+    .catch(next);
+});
+
+/**
+ * Start the server if this module is the main entry point, or it is ran via PM2.
+ * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
+ */
+if (isMainModule(import.meta.url) || process.env['pm_id']) {
+  const port = process.env['PORT'] || 4000;
+  app.listen(port, (error) => {
+    if (error) {
+      throw error;
+    }
+
+    console.log(`Node Express server listening on http://localhost:${port}`);
+  });
+}
+
+/**
+ * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
+ */
+export const reqHandler = createNodeRequestHandler(app);
+</file>
+
+<file path="tsconfig.app.json">
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts"
+  ]
+}
+</file>
+
+<file path="tsconfig.json">
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve"
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}
+</file>
+
+<file path="tsconfig.spec.json">
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "vitest/globals"
+    ]
+  },
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.spec.ts"
+  ]
+}
+</file>
+
+<file path="package.json">
+{
+  "name": "gws-website",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "serve:ssr:gws-website": "node dist/gws-website/server/server.mjs"
+  },
+  "private": true,
+  "packageManager": "npm@11.7.0",
+  "dependencies": {
+    "@angular/cdk": "^21.2.14",
+    "@angular/common": "^21.2.0",
+    "@angular/compiler": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0",
+    "@angular/material": "^21.2.14",
+    "@angular/platform-browser": "^21.2.0",
+    "@angular/platform-server": "^21.2.0",
+    "@angular/router": "^21.2.0",
+    "@angular/ssr": "^21.2.2",
+    "express": "^5.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.2.2",
+    "@angular/cli": "^21.2.2",
+    "@angular/compiler-cli": "^21.2.0",
+    "@types/express": "^5.0.1",
+    "@types/node": "^20.17.19",
+    "jsdom": "^28.0.0",
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.8"
+  }
+}
+</file>
+
+<file path="src/app/app.config.ts">
+import {
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners,
+  provideZonelessChangeDetection,
+} from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { routes } from './app.routes';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideBrowserGlobalErrorListeners(),
+    provideZonelessChangeDetection(),
+    provideRouter(routes),
+    provideClientHydration(withEventReplay()),
+    provideAnimationsAsync(),
+  ],
+};
+</file>
+
+<file path="src/app/app.html">
+<div class="app-container">
+  <header class="header" id="header">
+    <div class="header-content">
+      <a class="logo-link" (click)="scrollToSection('hero')">
+        <img class="logo" src="/images/logo.png" alt="Geschwister Weiß-Stiftung" />
+      </a>
+
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li>
+            <button class="main-nav-link-button" (click)="routing('ueber-die-stiftung')">
+              Über die Stiftung
+            </button>
+          </li>
+          <li>
+            <button class="main-nav-link-button" (click)="scrollToSection('projekte')">
+              Unsere Projekte
+            </button>
+          </li>
+          <li>
+            <button class="main-nav-link-button" (click)="routing('impressum')">Impressum</button>
+          </li>
+          <li>
+            <button class="main-nav-link-button" (click)="routing('datenschutz')">
+              Datenschutz
+            </button>
+          </li>
+          <li>
+            <button class="main-nav-link-button cta-link" (click)="scrollToSection('spenden')">
+              Jetzt unterstützen
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="menu-button" (click)="handleMenuButtonClick()">
+        <app-icon [iconName]="'menu'" [iconColor]="'#1a2d42'" [iconSize]="'3.2rem'"></app-icon>
+      </button>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <img class="footer-logo-img" src="/images/logo.png" alt="Logo" />
+        </div>
+        <p class="footer-description">
+          Gemeinnützige Stiftung für Glaubensvermittlung und Gesundheitsförderung. Im Gedenken an
+          Irene Weiß.
+        </p>
+        <div class="footer-socials">
+          <a class="social-btn" href="#" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+              />
+            </svg>
+          </a>
+          <a class="social-btn" href="#" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Navigation</p>
+        <ul class="footer-nav">
+          <li (click)="routing('ueber-die-stiftung')">Über die Stiftung</li>
+          <li (click)="scrollToSection('projekte')">Unsere Projekte</li>
+          <li (click)="routing('impressum')">Impressum</li>
+          <li (click)="routing('datenschutz')">Datenschutz</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Unsere Schwerpunkte</p>
+        <ul class="footer-nav">
+          <li (click)="scrollToSection('mission')">Glaubensvermittlung</li>
+          <li (click)="scrollToSection('mission')">Gesundheitsförderung</li>
+          <li (click)="scrollToSection('projekte')">Priesternachwuchs</li>
+          <li (click)="scrollToSection('projekte')">Behindertenhilfe</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Kontakt</p>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <app-icon
+              [iconName]="'location_on'"
+              [iconColor]="'#c9963a'"
+              [iconSize]="'1.8rem'"
+            ></app-icon>
+            <span>41460 Neuss, Deutschland</span>
+          </div>
+          <div class="footer-contact-item">
+            <app-icon [iconName]="'mail'" [iconColor]="'#c9963a'" [iconSize]="'1.8rem'"></app-icon>
+            <a href="mailto:info@geschwister-weiss-stiftung.de"
+              >info&#64;geschwister-weiss-stiftung.de</a
+            >
+          </div>
+        </div>
+        <button class="footer-spenden-btn" (click)="scrollToSection('spenden')">
+          <app-icon
+            [iconName]="'favorite'"
+            [iconColor]="'#1a2d42'"
+            [iconSize]="'1.8rem'"
+          ></app-icon>
+          Spenden
+        </button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 Geschwister Weiß-Stiftung. Alle Rechte vorbehalten. Gemeinnützig anerkannt.</p>
+      <div class="footer-bottom-links">
+        <button (click)="routing('impressum')">Impressum</button>
+        <button (click)="routing('datenschutz')">Datenschutz</button>
+      </div>
+    </div>
+  </footer>
+</div>
+</file>
+
+<file path="src/app/app.routes.ts">
+import { Routes } from '@angular/router';
+import { Main } from './pages/main/main';
+import { Impressum } from './pages/impressum/impressum';
+import { Datenschutz } from './pages/datenschutz/datenschutz';
+import { UeberDieStiftung } from './pages/ueber-die-stiftung/ueber-die-stiftung';
+
+export const routes: Routes = [
+  { path: '', component: Main },
+  { path: 'impressum', component: Impressum },
+  { path: 'datenschutz', component: Datenschutz },
+  { path: 'ueber-die-stiftung', component: UeberDieStiftung },
+  { path: '**', redirectTo: '' },
+];
+</file>
+
+<file path="src/app/app.scss">
+@use '../styles' as *;
+
+.app-container {
+  min-height: 100vh;
+  @include flex-col;
+}
+
+// =====================
+// HEADER
+// =====================
+
+.header {
+  width: 100%;
+  height: 7.2rem;
+  background-color: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  @include container;
+  @include flex-between;
+  height: 100%;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo {
+  height: 4.4rem;
+  width: auto;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+
+.main-nav-list {
+  @include flex-center;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+.main-nav-link-button {
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  background: none;
+  border: none;
+  border-radius: 0.6rem;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-blue);
+  }
+
+  &.cta-link {
+    @include button-base;
+    background-color: var(--accent-gold);
+    color: var(--text-light);
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+
+    &:hover {
+      background-color: var(--accent-gold-hover);
+    }
+    &:active {
+      background-color: var(--accent-gold-active);
+    }
+  }
+}
+
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include respond(md) {
+    display: block;
+  }
+}
+
+@include respond(md) {
+  .main-nav-list {
+    display: none;
+  }
+}
+
+// =====================
+// MAIN CONTENT
+// =====================
+
+.main-content {
+  flex: 1;
+  @include flex-col;
+}
+
+// =====================
+// FOOTER
+// =====================
+
+.footer {
+  background-color: var(--bg-dark);
+  color: var(--text-muted);
+  font-size: 1.5rem;
+}
+
+.footer-top {
+  @include container;
+  padding-top: 6.4rem;
+  padding-bottom: 4.8rem;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 5.6rem;
+
+  @include respond(lg) {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+    gap: 3.2rem;
+  }
+}
+
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.footer-logo-img {
+  height: 4rem;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.footer-description {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 28rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+}
+
+.social-btn {
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  @include flex-center;
+  color: var(--text-light);
+  transition: background-color 0.2s;
+  text-decoration: none;
+
+  svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.footer-col-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+
+.footer-nav {
+  list-style: none;
+  @include flex-col(1.2rem);
+
+  li {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--text-light);
+    }
+  }
+}
+
+.footer-contact-list {
+  @include flex-col(1.2rem);
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+
+  a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    &:hover {
+      color: var(--accent-gold);
+    }
+  }
+}
+
+.footer-spenden-btn {
+  @include button-base;
+  background-color: var(--accent-gold);
+  color: var(--text-dark);
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  margin-top: 2.4rem;
+
+  &:hover {
+    background-color: var(--accent-gold-hover);
+  }
+}
+
+.footer-bottom {
+  @include container;
+  @include flex-between;
+  padding-top: 2.4rem;
+  padding-bottom: 3.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 1.3rem;
+  color: var(--text-muted);
+
+  @include respond(sm) {
+    flex-direction: column;
+    gap: 1.6rem;
+    text-align: center;
+  }
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 2.4rem;
+
+  button {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--text-light);
+    }
+  }
+}
+</file>
+
+<file path="src/app/app.ts">
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { MenuModal } from './util/menu-modal/menu-modal';
+import { Icon } from './util/icon/icon';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, Icon],
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
+})
+export class App {
+  private dialog = inject(MatDialog);
+  private router = inject(Router);
+
+  scrollToSection(sectionId: string) {
+    const url = this.router.url;
+    if (url !== '/') {
+      this.router.navigate(['/']).then(() => {
+        setTimeout(() => this.scroll(sectionId), 100);
+      });
+    } else {
+      this.scroll(sectionId);
+    }
+  }
+
+  private scroll(id: string) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  routing(url: string) {
+    this.router.navigate([url]).then(() => window.scrollTo(0, 0));
+  }
+
+  handleMenuButtonClick() {
+    const ref = this.dialog.open(MenuModal, { panelClass: 'menu-modal' });
+    ref.afterClosed().subscribe((id) => {
+      if (id) this.scrollToSection(id);
+    });
+  }
+}
+</file>
+
+<file path="src/index.html">
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Geschwister Weiß-Stiftung</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>
+</file>
+
+<file path="src/styles.scss">
+@use '@angular/material' as mat;
+
+// =====================
+// MIXINS
+// =====================
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == xl {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media (max-width: 64em) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media (max-width: 52em) {
+      @content;
+    }
+  }
+  @if $breakpoint == sm {
+    @media (max-width: 36em) {
+      @content;
+    }
+  }
+  @if $breakpoint == xs {
+    @media (max-width: 27em) {
+      @content;
+    }
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-col($gap: 0) {
+  display: flex;
+  flex-direction: column;
+  @if $gap > 0 {
+    gap: $gap;
+  }
+}
+
+@mixin container {
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@mixin button-base {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 1.4rem 2.4rem;
+  @include flex-center;
+  gap: 0.8rem;
+}
+
+// =====================
+// RESET & BASE
+// =====================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+
+  @include respond(xl) {
+    font-size: 56.25%;
+  }
+  @include respond(lg) {
+    font-size: 50%;
+  }
+  @include respond(xs) {
+    font-size: 40%;
+  }
+}
+
+body {
+  color-scheme: light;
+  background-color: #ffffff;
+  font-family: 'Rubik', sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--text-dark);
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+// =====================
+// CSS VARIABLES
+// =====================
+
+:root {
+  --primary-blue: #1e3a5f;
+  --primary-blue-hover: #2a4f7a;
+  --primary-blue-active: #162d4a;
+  --primary-blue-light: #eef3f8;
+
+  --accent-gold: #c9963a;
+  --accent-gold-hover: #d9a84a;
+  --accent-gold-active: #b8852e;
+  --accent-gold-light: #fdf6e9;
+
+  --bg-white: #ffffff;
+  --bg-light: #f0f2f5;
+  --bg-dark: #1a2d42;
+  --bg-dark-2: #243650;
+
+  --text-dark: #1a2d42;
+  --text-grey: #5a6a7a;
+  --text-light: #ffffff;
+  --text-muted: #8a9ab0;
+
+  --border-color: #d5dde5;
+  --shadow-sm: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 0.4rem 1.6rem rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 0.8rem 3.2rem rgba(0, 0, 0, 0.14);
+}
+
+// =====================
+// SCROLLBAR
+// =====================
+
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-blue);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-blue-hover);
+}
+
+// =====================
+// MODAL
+// =====================
+
+.menu-modal {
+  width: 100%;
+  height: 100%;
+}
+</file>
+
+</files>
