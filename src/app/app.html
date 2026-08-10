@@ -8,13 +8,13 @@
       <nav class="main-nav">
         <ul class="main-nav-list">
           <li>
-            <button class="main-nav-link-button" (click)="routing('ueber-die-stiftung')">
-              Über die Stiftung
+            <button class="main-nav-link-button" (click)="scrollToSection('projekte')">
+              Unsere Projekte
             </button>
           </li>
           <li>
-            <button class="main-nav-link-button" (click)="scrollToSection('projekte')">
-              Unsere Projekte
+            <button class="main-nav-link-button" (click)="routing('ueber-die-stiftung')">
+              Über die Stiftung
             </button>
           </li>
           <li>
@@ -51,7 +51,7 @@
         </div>
         <p class="footer-description">
           Gemeinnützige Stiftung für Glaubensvermittlung und Gesundheitsförderung. Im Gedenken an
-          Irene Weiß.
+          Hartmut Weiß.
         </p>
         <div class="footer-socials">
           <a class="social-btn" href="#" target="_blank">
@@ -74,8 +74,8 @@
       <div class="footer-col">
         <p class="footer-col-title">Navigation</p>
         <ul class="footer-nav">
-          <li (click)="routing('ueber-die-stiftung')">Über die Stiftung</li>
           <li (click)="scrollToSection('projekte')">Unsere Projekte</li>
+          <li (click)="routing('ueber-die-stiftung')">Über die Stiftung</li>
           <li (click)="routing('impressum')">Impressum</li>
           <li (click)="routing('datenschutz')">Datenschutz</li>
         </ul>

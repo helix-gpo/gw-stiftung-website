@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class Datenschutz {
   constructor(private router: Router) {}
+
   routing(url: string) {
-    this.router.navigate([url]).then(() => window.scrollTo(0, 0));
+    this.router.navigate([url]);
   }
 }
