@@ -30,7 +30,7 @@ export class Main {
   }
 
   handleSpenden() {
-    window.location.href = 'mailto:info@geschwister-weiss-stiftung.de?subject=Spende';
+    window.location.href = 'mailto:gwstiftung@gmail.com?subject=Spende';
   }
 
   handleContactSubmit() {
@@ -39,6 +39,6 @@ export class Main {
     const body = encodeURIComponent(
       `Name: ${this.formData.name}\nE-Mail: ${this.formData.email}\n\n${this.formData.nachricht}`,
     );
-    window.location.href = `mailto:info@geschwister-weiss-stiftung.de?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:gwstiftung@gmail.com?subject=${subject}&body=${body}`;
   }
 }

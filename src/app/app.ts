@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
@@ -17,6 +17,8 @@ export class App implements OnInit {
   private router = inject(Router);
   private platformId = inject(PLATFORM_ID);
   private isBrowser = isPlatformBrowser(this.platformId);
+  readonly toastMessage = signal<string | null>(null);
+  private toastTimeout?: ReturnType<typeof setTimeout>;
 
   constructor() {
     if (this.isBrowser && 'scrollRestoration' in window.history) {
@@ -29,6 +31,12 @@ export class App implements OnInit {
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
       .subscribe(() => this.forceScrollTop());
+  }
+
+  showToast(message: string) {
+    this.toastMessage.set(message);
+    clearTimeout(this.toastTimeout);
+    this.toastTimeout = setTimeout(() => this.toastMessage.set(null), 2500);
   }
 
   private forceScrollTop() {
